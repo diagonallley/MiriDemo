@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutEcom.cshtml";
+}
+<style>
+    #main {
+        position: absolute;
+    }
+</style>
+<div id="main" class="product">
+    <div class="wrapper main-wrapper">
+        <div class="top-tabs clearfix">
+            <a href="@Url.Action("Index","AllKart")" class="active">Allkart.com</a>
+            <span class="top-divider"></span>
+            <a href="@Url.Action("Index","BookToday")">Booktoday.com</a>
+        </div>
+        <div class="main-content">
+            <div class="landing-page">
+                <div class="head clearfix">
+                    <a href="#" class="top-grid left"><img src="~/Content/images/orange-grid.png" alt=""></a>
+                    <a href="#" class="top-logo left"><img src="~/Content/images/allkart-logo.png" alt=""></a>
+                    <div class="left">
+                        <div class="search-hldr left">
+                            <button type="button" class="srch-btn"><img src="~/Content/images/search-btn.png" alt=""></button>
+                            <input type="text" placeholder="Search" autofocus="autofocus">
+                        </div>
+                    </div>
+                    <div class="top-actions right">
+                        <button type="button" class="ech-btn left"><img src="~/Content/images/cart.png" alt=""></button>
+                        <button type="button" class="ech-btn left"><img src="~/Content/images/fav-top-icon.png" alt=""></button>
+                        <button type="button" class="ech-btn left"><img src="~/Content/images/user-sml.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="product-cnt">
+                    <div class="breadcrumbs">
+                        <ul class="breadcrumbs-lst clearfix">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Electronics</a></li>
+                            <li><a href="#">Gadget</a></li>
+                            <li>Headphone</li>
+                        </ul>
+                    </div>
+                    <div class="decp-hldr">
+                        <div class="decp-slider">
+                            <a class="fav-btn"><img src="~/Content/images/fav-icon.png" alt=""></a>
+                            <div class="product-slider productSlider owl-carousel">
+                                <div class="product-img"><img src="~/Content/images/slide-img-01.jpg" alt=""></div>
+                                <div class="product-img"><img src="~/Content/images/slide-img-02.jpg" alt=""></div>
+                                <div class="product-img"><img src="~/Content/images/slide-img-03.jpg" alt=""></div>
+                                <div class="product-img"><img src="~/Content/images/slide-img-04.jpg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="decp-cnt">
+                            <div class="ech-decp pro-heading">
+                                <h6>Apple iPhone 11 (Black, 128 GB)</h6>
+                                <div class="clearfix">
+                                    <div class="pro-star left">
+                                        <img src="~/Content/images/star-yellow.png" alt="">
+                                        <img src="~/Content/images/star-yellow.png" alt="">
+                                        <img src="~/Content/images/star-yellow.png" alt="">
+                                        <img src="~/Content/images/star-yellow.png" alt="">
+                                        <img src="~/Content/images/gray-star.png" alt="">
+                                    </div>
+                                    <p class="pro-review left">
+                                        <a href="#">311 ratings</a> |
+                                        <a href="#">115 answered questions</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="ech-decp price-hldr">
+                                <div class="price-title">Price:</div>
+                                <div class="price-cnt">
+                                    <div class="price clearfix">
+                                        <p class="price-new left"><span class="rupee">₹</span> 69,900</p>
+                                        <p class="price-old left"><span class="rupee">₹</span> 96,990.00</p>
+                                    </div>
+                                    <p class="you-save">You save <span><span class="rupee">₹</span> 27,405.00 (40%)</span></p>
+                                    <p class="emi">EMI starts at <b><span class="rupee">₹</span>1659</b>. No Cost EMI available. Check <a class="orange-lnk">EMI options</a></p>
+                                </div>
+                            </div>
+                            <div class="ech-decp btn-hldr clearfix">
+                                <div class="color-pick-hldr left">
+                                    <ul class="color-pick-lst clearfix">
+                                        <li class="color-blank"><input type="radio" name="color-picker" checked="checked"><span><i></i></span></li>
+                                        <li class="color-blue"><input type="radio" name="color-picker"><span><i></i></span></li>
+                                        <li class="color-red"><input type="radio" name="color-picker"><span><i></i></span></li>
+                                        <li class="color-gray"><input type="radio" name="color-picker"><span><i></i></span></li>
+                                    </ul>
+                                    <p class="title">Color :<i>Selected Black</i></p>
+                                </div>
+                                <a href="@Url.Action("Index","AllKartPayment")" class="secondary-btn left">BUY NOW</a>
+                            </div>
+                            <div class="ech-decp decp-lst">
+                                <h6>Description</h6>
+                                <ul>
+                                    <li>Ultra lightweight on ear design ensures exceptional wearing comfort</li>
+                                    <li>The single-button remote and microphone on the cable make it easy to take calls with your smartphone</li>
+                                    <li>32mm, 18-ohm proprietary Sennheiser transducer is ideal for use with portable audio devices, tablets and mobile phones</li>
+                                    <li>Folding headband allows the headphone to be collapsed for storage when not being used</li>
+                                    <li>2 years warranty when purchased from an authorized Sennheiser dealer</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

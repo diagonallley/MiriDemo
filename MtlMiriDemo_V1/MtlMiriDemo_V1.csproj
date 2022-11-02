@@ -1,0 +1,398 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29701A67-2FDD-4665-BC31-248CF1F14E0D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MtlMiriDemo_V1</RootNamespace>
+    <AssemblyName>MtlMiriDemo_V1</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MTLMiriLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MTLMiriLib\bin\Debug\MTLMiriLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net48\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net48\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\cropper.min.css" />
+    <Content Include="Content\css\fonts.css" />
+    <Content Include="Content\css\jquery.ccpicker.css" />
+    <Content Include="Content\css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Content\css\media.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
+    <Content Include="Content\css\reset.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\sweetalert.css" />
+    <Content Include="Content\fonts\Rupee_Foradian-webfont.svg" />
+    <Content Include="Content\images\allkart-logo.png" />
+    <Content Include="Content\images\android.png" />
+    <Content Include="Content\images\arrow.png" />
+    <Content Include="Content\images\back-arrow.png" />
+    <Content Include="Content\images\background.png" />
+    <Content Include="Content\images\blue-left.png" />
+    <Content Include="Content\images\blue-right.png" />
+    <Content Include="Content\images\book-head.jpg" />
+    <Content Include="Content\images\Booktoday.com.png" />
+    <Content Include="Content\images\Byfrost final-02-01.jpg" />
+    <Content Include="Content\images\Byfrost final-02-01old.jpg" />
+    <Content Include="Content\images\Byfrost-01.jpg" />
+    <Content Include="Content\images\calender.png" />
+    <Content Include="Content\images\cam-pic.png" />
+    <Content Include="Content\images\cart.png" />
+    <Content Include="Content\images\case-01.png" />
+    <Content Include="Content\images\case-02.png" />
+    <Content Include="Content\images\case-03.png" />
+    <Content Include="Content\images\case-04.png" />
+    <Content Include="Content\images\case-05.png" />
+    <Content Include="Content\images\case-06.png" />
+    <Content Include="Content\images\case-07.png" />
+    <Content Include="Content\images\case-08.png" />
+    <Content Include="Content\images\check.png" />
+    <Content Include="Content\images\circle-center.png" />
+    <Content Include="Content\images\circle-one.png" />
+    <Content Include="Content\images\circle-three.png" />
+    <Content Include="Content\images\circle-two.png" />
+    <Content Include="Content\images\close-512.png" />
+    <Content Include="Content\images\company-01.png" />
+    <Content Include="Content\images\company-02.png" />
+    <Content Include="Content\images\company-03.png" />
+    <Content Include="Content\images\correct.png" />
+    <Content Include="Content\images\download.png" />
+    <Content Include="Content\images\drop-master-card.png" />
+    <Content Include="Content\images\drop-rupay.png" />
+    <Content Include="Content\images\drop-visa.png" />
+    <Content Include="Content\images\error-circle.png" />
+    <Content Include="Content\images\fav-icon.png" />
+    <Content Include="Content\images\fav-top-icon.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\file.png" />
+    <Content Include="Content\images\flags.png" />
+    <Content Include="Content\images\gray-star.png" />
+    <Content Include="Content\images\icon-01-active.png" />
+    <Content Include="Content\images\icon-01-yellow-active.png" />
+    <Content Include="Content\images\icon-01.png" />
+    <Content Include="Content\images\icon-02-active.png" />
+    <Content Include="Content\images\icon-02-yellow-active.png" />
+    <Content Include="Content\images\icon-02.png" />
+    <Content Include="Content\images\icon-03-active.png" />
+    <Content Include="Content\images\icon-03-yellow-active.png" />
+    <Content Include="Content\images\icon-03.png" />
+    <Content Include="Content\images\inner-qr-code.png" />
+    <Content Include="Content\images\ios.png" />
+    <Content Include="Content\images\list-01.jpg" />
+    <Content Include="Content\images\list-02.jpg" />
+    <Content Include="Content\images\list-03.jpg" />
+    <Content Include="Content\images\log-out.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\mail.png" />
+    <Content Include="Content\images\master-card.png" />
+    <Content Include="Content\images\miri-card.png" />
+    <Content Include="Content\images\miri-demo.png" />
+    <Content Include="Content\images\miri-token.png" />
+    <Content Include="Content\images\not-valid.png" />
+    <Content Include="Content\images\orange-grid.png" />
+    <Content Include="Content\images\Path 470.png" />
+    <Content Include="Content\images\pc.png" />
+    <Content Include="Content\images\phone-thumb.jpg" />
+    <Content Include="Content\images\phone.png" />
+    <Content Include="Content\images\POSITIVEPAY.png" />
+    <Content Include="Content\images\print.png" />
+    <Content Include="Content\images\pro-circle.png" />
+    <Content Include="Content\images\product-01.png" />
+    <Content Include="Content\images\product-02.png" />
+    <Content Include="Content\images\product-03.png" />
+    <Content Include="Content\images\product-04.png" />
+    <Content Include="Content\images\product-05.png" />
+    <Content Include="Content\images\qr-close.png" />
+    <Content Include="Content\images\qr-code-small.png" />
+    <Content Include="Content\images\qr-code.png" />
+    <Content Include="Content\images\re-try.png" />
+    <Content Include="Content\images\search-btn.png" />
+    <Content Include="Content\images\slide-img-01.jpg" />
+    <Content Include="Content\images\slide-img-02.jpg" />
+    <Content Include="Content\images\slide-img-03.jpg" />
+    <Content Include="Content\images\slide-img-04.jpg" />
+    <Content Include="Content\images\star-yellow.png" />
+    <Content Include="Content\images\success-img.png" />
+    <Content Include="Content\images\success-yellow.png" />
+    <Content Include="Content\images\success.png" />
+    <Content Include="Content\images\switch-big.png" />
+    <Content Include="Content\images\switch-smal.png" />
+    <Content Include="Content\images\thumb-uder-gray.png" />
+    <Content Include="Content\images\user-icon.jpg" />
+    <Content Include="Content\images\user-sml.png" />
+    <Content Include="Content\images\user-thumb-pro.png" />
+    <Content Include="Content\images\web-lrg.png" />
+    <Content Include="Content\images\webcam.png" />
+    <Content Include="Content\images\white-arrow.png" />
+    <Content Include="Content\images\white-cls.png" />
+    <Content Include="Content\images\white-right.png" />
+    <Content Include="Content\images\yellow-bottom.png" />
+    <Content Include="Content\images\yellow-grid.png" />
+    <Content Include="Content\images\yellow-top.png" />
+    <Content Include="Content\images\yellow.png" />
+    <Content Include="Content\js\cropper.min.js" />
+    <Content Include="Content\js\instascan.min.js" />
+    <Content Include="Content\js\jquery.ccpicker.min.js" />
+    <Content Include="Content\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Content\js\jquery.min.v1.11.2.js" />
+    <Content Include="Content\js\jquery.validate.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\script.js" />
+    <Content Include="Content\js\select2.full.min.js" />
+    <Content Include="Content\js\sweetalert-dev.js" />
+    <Content Include="Content\js\webcam.min.js" />
+    <Content Include="Email\android.jpg" />
+    <Content Include="Email\apple.jpg" />
+    <Content Include="Email\banner.jpg" />
+    <Content Include="Email\byfret.jpg" />
+    <Content Include="Email\desktop.jpg" />
+    <Content Include="Email\index.html" />
+    <Content Include="Email\mail.png" />
+    <Content Include="Email\miri-card.jpg" />
+    <Content Include="Email\miri-id.jpg" />
+    <Content Include="Email\miri-token.jpg" />
+    <Content Include="Email\miricard.jpg" />
+    <Content Include="Email\miriid.jpg" />
+    <Content Include="Email\miripay.jpg" />
+    <Content Include="Email\miritoken.jpg" />
+    <Content Include="Email\miritoken.png" />
+    <Content Include="Email\one.jpg" />
+    <Content Include="Email\phone.png" />
+    <Content Include="Email\qr-code-big.png" />
+    <Content Include="Email\qr-code.png" />
+    <Content Include="Email\three.jpg" />
+    <Content Include="Email\two.jpg" />
+    <Content Include="ErrorLog\ErrorLog.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountActivation\Interface1.cs" />
+    <Compile Include="AccountActivation\Req.cs" />
+    <Compile Include="AccountActivation\Root.cs" />
+    <Compile Include="AccountReq\Req.cs" />
+    <Compile Include="AccountReq\Root.cs" />
+    <Compile Include="AccountReq\TheAccount.cs" />
+    <Compile Include="AccountRes\Resp.cs" />
+    <Compile Include="AccountRes\Root.cs" />
+    <Compile Include="AccountRes\TheAccountView.cs" />
+    <Compile Include="ActivationCodeRes\Resp.cs" />
+    <Compile Include="ActivationCodeRes\Root.cs" />
+    <Compile Include="ActivationCodeRes\TheAccount.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AllKartController.cs" />
+    <Compile Include="Controllers\AllKartPaymentController.cs" />
+    <Compile Include="Controllers\BookTodayController.cs" />
+    <Compile Include="Controllers\BookTodayPaymentController.cs" />
+    <Compile Include="Controllers\DemoUserController.cs" />
+    <Compile Include="Controllers\ErrorLogFile.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MiriCardController.cs" />
+    <Compile Include="Controllers\MiriIdController.cs" />
+    <Compile Include="Controllers\MiriTokenController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\Status.cs" />
+    <Compile Include="Controllers\UserData.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Logfile.cs" />
+    <Compile Include="ProfileReq\Req.cs" />
+    <Compile Include="ProfileReq\Root.cs" />
+    <Compile Include="ProfileReq\TheProfile.cs" />
+    <Compile Include="ProfileRes\Resp.cs" />
+    <Compile Include="ProfileRes\Root.cs" />
+    <Compile Include="ProfileRes\TheProfile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenValidationRes\root.cs" />
+    <Compile Include="VerifyIdRes\Root.cs" />
+    <Compile Include="Views\AccountActivation\Req.cs" />
+    <Compile Include="Views\AccountActivation\Root.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\images\data.json" />
+    <Content Include="Content\fonts\Rupee_Foradian-webfont.eot" />
+    <Content Include="Content\fonts\Rupee_Foradian-webfont.ttf" />
+    <Content Include="Content\fonts\Rupee_Foradian-webfont.woff" />
+    <Content Include="Content\fonts\Rupee_Foradian-webfont.woff2" />
+    <Content Include="Views\Share\_LayoutMiriCard.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Share\_LayoutProduct.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\MiriCard\Index.cshtml" />
+    <Content Include="Views\Share\_LayoutEcom.cshtml" />
+    <Content Include="Views\AllKart\Index.cshtml" />
+    <Content Include="Views\BookToday\Index.cshtml" />
+    <Content Include="Views\AllKartPayment\Index.cshtml" />
+    <Content Include="Views\BookTodayPayment\Index.cshtml" />
+    <Content Include="Views\Share\_LayoutMiriId.cshtml" />
+    <Content Include="Views\MiriId\Index.cshtml" />
+    <Content Include="Views\Share\_LayoutMiriToken.cshtml" />
+    <Content Include="Views\MiriToken\Index.cshtml" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60970</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60970/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,960 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutEcom.cshtml";
+}
+<style>
+    #main {
+        position: absolute;
+    }
+  
+</style>
+
+
+<script>
+    $(document).keydown(function (objEvent) {
+        if (objEvent.keyCode == 9) {  //tab pressed
+            objEvent.preventDefault(); // stops its action
+        }
+    })
+</script>
+<script>
+    $('.creditCardText').keyup(function () {
+        var foo = $(this).val().split("-").join(""); // remove hyphens
+        if (foo.length > 0) {
+            foo = foo.match(new RegExp('.{1,4}', 'g')).join("-");
+        }
+        $(this).val(foo);
+    });
+</script>
+<script type="text/javascript">
+    function start_cart() {
+
+        let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+        scanner.addListener('scan', function (content) {
+            $('.cameraVideoMsg').hide();
+            //alert(content);
+            var nameArr = content.split(',');
+            console.log(nameArr);
+            var k = nameArr[0];
+            var Cardno = k.match(/.{1,4}/g).join(' ');
+            var fname = nameArr[1];
+            var monthyear = nameArr[2];
+            var name = fname.substring(0, 4);
+            var lname = fname.substring(4);
+            var month = monthyear.substring(0, 2);
+            var year = monthyear.substring(2);
+            if (Cardno == $('#cardnumber').val() && name == $('#firstname').val() && lname == $('#lastname').val() && month == $('#month').val() && year == $('#year').val()) {
+                swal("Card details already captured.");
+            }
+            else {
+                var cardnumber = nameArr[0];
+                var fname = nameArr[1];
+                var monthyear = nameArr[2];
+                var name = fname.substring(0, 4);
+                var lname = fname.substring(4);
+                var month = monthyear.substring(0, 2);
+                var year = monthyear.substring(2);
+                var finalVal = cardnumber.match(/.{1,4}/g).join(' ');
+                $('#cardnumber').val(finalVal);
+                $('#firstname').val(name)
+                $('#lastname').val(lname);
+                $('#month').val(month);
+                $('#year').val(year);
+                $('#cvv').val(nameArr[3]);
+                $('.cameraVideoMsg').hide();
+                CardImages();
+                scanner.stop();
+                $('.qr-cam').show();
+                $('#camstart').show();
+                $('#camimg').show();
+                $('#camimg').css('margin-left','45%')
+                swal("Card details captured.");
+
+            }
+
+        });
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                $('.cameraVideoMsg').hide();
+                scanner.start(cameras[0]);
+
+            } else {
+                $('.cameraVideoMsg').show();
+                console.error('No cameras found.');
+                alert('No cameras found.');
+            }
+        }).catch(function (e) {
+            console.error(e);
+        });
+    }
+
+
+</script>
+<script>
+    $(document).keydown(function (objEvent) {
+        if (objEvent.keyCode == 9) {  //tab pressed
+            objEvent.preventDefault(); // stops its action
+        }
+    })
+</script>
+<div id="main" class="product">
+    <div class="wrapper main-wrapper">
+        <div class="top-tabs clearfix">
+            <a href="@Url.Action("Index","AllKart")" class="active">Allkart.com</a>
+            <span class="top-divider"></span>
+            <a href="@Url.Action("Index","BookToday")">Booktoday.com</a>
+        </div>
+        <div class="main-content">
+            <div class="slide-cnt">
+                <div class="head clearfix">
+                    <a href="#" class="top-grid left"><img src="~/Content/images/orange-grid.png" alt=""></a>
+                    <a href="#" class="top-logo left"><img src="~/Content/images/allkart-logo.png" alt=""></a>
+                    <div class="top-actions right">
+                        <button type="button" class="ech-btn left"><img src="~/Content/images/user-sml.png" alt=""></button>
+                    </div>
+                </div>
+                <div>
+                    <ul class="product-steps">
+                        <li class="active">
+                            <div class="img-hldr">
+                                <img src="~/Content/images/icon-01.png" alt="">
+                                <img src="~/Content/images/icon-01-active.png" alt="" class="active">
+                            </div>
+                            <p>Payment Method</p>
+                        </li>
+                        <li>
+                            <div class="img-hldr">
+                                <img src="~/Content/images/icon-02.png" alt="">
+                                <img src="~/Content/images/icon-02-active.png" alt="" class="active">
+                            </div>
+                            <p>Card Details</p>
+                        </li>
+                        <li>
+                            <div class="img-hldr">
+                                <img src="~/Content/images/icon-03.png" alt="">
+                                <img src="~/Content/images/icon-03-active.png" alt="" class="active">
+                            </div>
+                            <p>Finish</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="slide-mn">
+                    <div class="ech-slide">
+                        <div class="ech-slide-mn">
+                            <div class="payment-cnt">
+                                <div class="payment-left">
+                                    <div class="product-info">
+                                        <h2>Order Details</h2>
+                                        <div class="pro-head">
+                                            <div class="img-hldr"><img src="~/Content/images/phone-thumb.jpg" alt=""></div>
+                                            <h6>Apple iPhone 11 <br> (Black, 128GB)</h6>
+                                        </div>
+                                        <div class="pro-info">
+                                            <ul class="pro-lst">
+                                                <li class="clearfix">
+                                                    <p class="left">Price</p>
+                                                    <p class="right"><span class="rupee">₹</span> 69,900.00</p>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <p class="left">QTY</p>
+                                                    <div class="right qty-hldr">
+                                                        <button type="button" class="qty-btn"><span>-</span></button>
+                                                        <p>1</p>
+                                                        <button type="button" class="qty-btn"><span>+</span></button>
+                                                    </div>
+                                                </li>
+                                                <li class="clearfix">
+                                                    <p class="left">Delivery Charges</p>
+                                                    <p class="right"><span class="rupee">₹</span> 55.00</p>
+                                                </li>
+                                            </ul>
+                                            <div class="total">
+                                                <div class="clearfix">
+                                                    <p class="left total-title">Total</p>
+                                                    <p class="right total-value" id="price"><span class="rupee">₹</span> 69,955.00</p>
+                                                </div>
+                                                <p class="total-saving">You Total Savings <span><i class="rupee">₹</i> 27,405.00 (40%)</span></p>
+                                            </div>
+                                        </div>
+                                        <h2>Delivery Address</h2>
+                                    </div>
+                                    <p class="del-adrs">
+                                        <b>Manipal Technologies Limited</b><br>
+                                        101/123, 1st Floor, The Summit Business Bay<br>
+                                        Off Andheri Kurla Road, Opp PVR Cinema<br>
+                                        Next to WEH Metro Station, Andheri East<br>
+                                        Mumbai 400093
+                                    </p>
+                                </div>
+                                <div class="payment-right">
+                                    <div class="order-cnt">
+                                        <ul class="pay-meth-lst">
+                                            <li>
+                                                <div class="radio-hldr">
+                                                    <input type="radio" value="CC" name="pay-meth" id="Credit-Card" class="paymentMeth" checked="checked">
+                                                    <label for="Credit-Card">Credit Card</label>
+                                                </div>
+                                                <div class="pay-meth-cnt">
+                                                    <ul class="address-lst clearfix">
+                                                        <li>
+                                                            <input type="radio" name="address-one" checked="checked">
+                                                            <span>Bank ONE</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-one">
+                                                            <span>Bank TWO</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-one">
+                                                            <span>Bank THREE</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-one">
+                                                            <span>Other Banks</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-hldr">
+                                                    <input type="radio" value="DC" name="pay-meth" id="Debit-Card" class="paymentMeth">
+                                                    <label for="Debit-Card">Debit Card</label>
+                                                </div>
+                                                <div class="pay-meth-cnt">
+                                                    <ul class="address-lst clearfix">
+                                                        <li>
+                                                            <input type="radio" name="address-two" checked="checked">
+                                                            <span>Bank ONE</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-two">
+                                                            <span>Bank TWO</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-two">
+                                                            <span>Bank THREE</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-two">
+                                                            <span>Other Banks</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-hldr">
+                                                    <input type="radio" value="NM" name="pay-meth" id="Net-Banking" class="paymentMeth">
+                                                    <label for="Net-Banking">Net Banking</label>
+                                                </div>
+                                                <div class="pay-meth-cnt">
+                                                    <ul class="address-lst clearfix">
+                                                        <li>
+                                                            <input type="radio" name="address-three" checked="checked">
+                                                            <span>Bank ONE</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-three">
+                                                            <span>Bank TWO</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-three">
+                                                            <span>Bank THREE</span>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" name="address-three">
+                                                            <span>Other Banks</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-hldr">
+                                                    <input type="radio" value="PM" name="pay-meth" id="Pay-with-MiriPay" class="paymentMeth">
+                                                    <label for="Pay-with-MiriPay">Pay with MiriPay</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-hldr">
+                                                    <input type="radio" value="W" name="pay-meth" id="Wallet" class="paymentMeth">
+                                                    <label for="Wallet">Wallet</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="order-btn-hldr clearfix">
+                                        <a class="secondary-btn bold-btn right" id="proceed">PROCEED TO PAYMENT <img src="~/Content/images/white-right.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="CardValidation">
+                        <div class="ech-slide">
+                            <div class="ech-slide-mn">
+                                <div class="card-dtl">
+                                    <div class="card-dtl-lft">
+                                        <p class="title">Please enter your card details</p>
+                                        <div class="card-form">
+                                            <div class="ech-row card-num">
+                                                <input type="text" placeholder="Card Number" name="cardnumber" id="cardnumber" maxlength="19" autocomplete="off" onkeyup="CardImages()" style="color:black;font-size:larger;">
+                                                <img id="imgCardBrand">
+                                            </div>
+                                            <div class="fifty-fifty ech-row">
+                                                <div>
+                                                    <input type="text" placeholder="First Name" name="firstname" id="firstname" style="color: black;font-size:larger;">
+                                                </div>
+                                                <div>
+                                                    <input type="text" placeholder="Last Name" name="lastname" id="lastname" style="color:black;font-size:larger;">
+                                                </div>
+                                            </div>
+                                            <div class="thirty-thirty ech-row clearfix">
+                                                <div class="select-hldr">
+                                                    <select name="month" id="month" style="font-size:larger;color:black;">
+                                                        <option value="0" style="color:black;">MONTH</option>
+                                                        @{ string val;
+                                                            for (int i = 1; i <= 12; i++)
+                                                            {
+
+                                                                if (i < 10)
+                                                                {
+                                                                    val = "0" + i;
+
+                                                                }
+
+                                                                else { val = i.ToString(); }
+
+                                                                <option value="@val" style="color:black;">@val</option>}
+                                                        }
+                                                    </select>
+
+                                                    <span class="icon-hldr"><img src="~/Content/images/white-arrow.png" alt=""></span>
+                                                </div>
+                                                <div class="select-hldr">
+
+                                                    <select name="year" id="year" style="font-size:larger;color:black;">
+                                                        <option value="0" style="color:black;">YEAR</option>
+                                                        @{int startyear = DateTime.Now.Year;
+                                                            int endyear = startyear + 13;
+
+                                                            for (int i = startyear; i < endyear; i++)
+                                                            {
+                                                                //string  k=Convert.ToString(i);
+                                                                var kaaa = i.ToString();
+                                                                var j = kaaa.Substring(2);
+
+                                                                <option value="@j" style="color:black;">@i</option>}
+
+                                                        }
+                                                    </select>
+                                                    <span class="icon-hldr"><img src="~/Content/images/white-arrow.png" alt=""></span>
+                                                </div>
+                                                <div>
+                                                    <input type="text" placeholder="CVV" class="cvv" maxlength="3" name="cvv" id="cvv" style="color: black;font-size:larger;">
+                                                    <input type="hidden" name="cardtypevalue" id="hdncardtypevalue" value="CD" />
+                                                    <input type="hidden" id="hdnCardBrand" name="CardBrand" value="M" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-dtl-cntr">
+                                        <p class="title">&nbsp;</p>
+                                        <div class="or-cnt"><span>OR</span></div>
+                                    </div>
+                                    <div class="card-dtl-right">
+                                        <p class="title">SCAN QR code</p>
+                                        <div class="card-dtl-cam" id="cam">
+                                            <img src="~/Content/images/cam-pic.png" alt="" class="cam-pic" id="camimg">
+                                            <a class="cardCam" onclick="start_cart()" id="camstart"></a>
+                                            <div class="qr-cam">
+                                                <video id="preview" class="video-cam"></video>
+                                                @*<div id="my_camera" class="video-cam"></div>*@
+                                                <h6 class="cameraVideoMsg">Webcam not detected !!!</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-dtl-btm">
+                                    <a class="secondary-btn bold-btn slideNextBtn" id="paybtn" onclick="validation()">PAY<b><span class="rupee">Rs. @((Session["Amt"]))</span></b><img src="~/Content/images/check.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                        <div class="ech-slide">
+                            <div class="ech-slide-mn">
+                                <div class="trans-hldr">
+                                    <div class="thank-you">
+                                        <p id="message">Thank you!</p>
+                                        <h6><img id="statusimg" src="~/Content/images/success.png" alt=""><span id="status" style="font-size:17px">Transaction Successful.</span></h6>
+                                    </div>
+                                    <div class="trans-dtls">
+                                        <h6>Transaction Details</h6>
+                                        <div class="trans-info">
+                                            <ul class="trans-lst">
+                                                @*<li class="clearfix">Transaction ID<b>WRSV2515</b></li>
+                                    <li class="clearfix">Transaction Date<b>03-12-2019 10:07:48 AM</b></li>
+                                      <li class="clearfix">Ref. No.<b>2416316</b></li>
+                                      <li class="clearfix">Amount Paid<b><span class="rupee">`</span> 3,585.00</b></li>
+                                      <li class="clearfix">Payment Mode<b>Credit Card</b></li>*@
+                                                <li class="clearfix">Transaction ID<b><span id="transactionid"></span></b></li>
+                                                <li class="clearfix">Transaction Date<b><span id="transactiondate"></span></b></li>
+                                                <li class="clearfix">Amount Paid<b><span class="rupee">Rs.</span><span id="amt"></span></b></li>
+                                                <li class="clearfix">Card Number<b><span id="cardno"></span></b></li>
+                                                <li class="clearfix">Payment Mode<b><span id="paymode"></span></b></li>
+                                            </ul>
+                                            <div class="qr-info">
+                                                <img id="qrimage" src="~/Content/New_Content/images/qr-code.png" alt="">
+                                                <span style="color:blue;font-family:Arial">Scan the above<br />for receipt.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="prnt-dnld-btns clearfix">
+                                        <a href="#" class="right"><img src="~/Content/images/print.png" alt=""></a>
+                                        <a href="#" class="right"><img src="~/Content/images/download.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="shop-btn">
+                                    <a href="@Url.Action("Index","AllKart")" class="secondary-btn bold-btn right">Continue Shopping <img src="~/Content/images/white-right.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#cardnumber').keyup(function (event) {
+            addHyphen(this);
+            //  $("#result").html(" ");
+        });
+    });
+    function addHyphen(element) {
+        let val = $(element).val().split(' ').join('');   // Remove dash (-) if mistakenly entered.
+        let finalVal = val.match(/.{1,4}/g).join(' ');    // Add (-) after 3rd every char.
+        $(element).val(finalVal);		// Update the input box.
+    }
+</script>
+
+
+
+
+<script>
+    function getdatetime() {
+        var today = new Date();
+        var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
+        var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
+        var dateTime = date + '' + time;
+        return dateTime;
+    }
+</script>
+
+
+
+<script>
+    function validation() {
+
+        var isValid = true;
+        var cardnumber = $('#cardnumber');
+        var firstname = $('#firstname');
+        var lastname = $('#lastname');
+        var ddlmonth = $('#month');
+        var ddlyear = $('#year');
+        var cvv = $('#cvv');
+
+        if ($.trim((cvv).val()) == '') {
+            isValid = false;
+            $(cvv).css({
+                //"border": "1px solid red",
+                //"background": "#FFCECE"
+            });
+        }
+        else {
+            $(cvv).css({
+                "border": "",
+                "background": ""
+            });
+        }
+        if ($.trim((ddlyear).val()) == '') {
+            isValid = false;
+            $(ddlyear).css({
+                //"border": "1px solid red",
+                //"background": "#FFCECE"
+            });
+        }
+        else {
+            $(ddlyear).css({
+                "border": "",
+                "background": ""
+            });
+        }
+        if ($.trim((ddlmonth).val()) == '') {
+            isValid = false;
+            $(ddlmonth).css({
+                //"border": "1px solid red",
+                //"background": "#FFCECE"
+            });
+        }
+        else {
+            $(ddlmonth).css({
+                "border": "",
+                "background": ""
+            });
+        }
+        if ($.trim((cardnumber).val()) == '') {
+            isValid = false;
+            $(cardnumber).css({
+                //"border": "1px solid red",
+                //"background": "#FFCECE"
+            });
+        }
+        else {
+            $(cardnumber).css({
+                "border": "",
+                "background": ""
+            });
+        }
+        if ($.trim((firstname).val()) == '') {
+            isValid = false;
+            $(firstname).css({
+                //"border": "1px solid red",
+                //"background": "#FFCECE"
+            });
+        }
+        else {
+            $(firstname).css({
+                "border": "",
+                "background": ""
+            });
+        }
+        if ($.trim((firstname).val()) == '') {
+            isValid = false;
+            $(lastname).css({
+                //"border": "1px solid red",
+                //"background": "#FFCECE"
+            });
+        }
+        else {
+            $(lastname).css({
+                "border": "",
+                "background": ""
+            });
+        }
+
+        if (isValid == false) {
+           // alert('');
+            swal("Please fill all the details.");
+            e.preventDefault();
+
+        }
+        else {
+
+
+
+            //setTimeout(function () {
+            //    $('#loader').show();
+            //    $('#Spin').show();
+            //    //CardValidation();
+            //}, 500);
+
+           // $('#loader').show();
+            //$('#Spin').show();
+            setTimeout(function () {
+                CardValidation();
+            }, 1500);
+
+            return true;
+        }
+
+    }
+
+    var requestflag = false;
+
+    function CardValidation() {
+        if (requestflag == true) { /*alert('Your registration is being processed.\nPlease wait.');*/ return; }
+        requestflag = true;
+        var form = $('#CardValidation')[0];
+        var data = new FormData(form);
+        $.ajax({
+            url: "@Url.Action("CardValidation", "AllKartPayment")",
+            type: "Post",
+            data: data,
+            contentType: "application/json",
+            dataType: "text",
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                var r = data.split(',');
+                 alert(data);
+                requestflag = false;
+                if (r[0] == '005') {
+                    $('.trans-dtls').show();
+                    $('#transactionid').html(r[2]);
+                    $('#transactiondate').html(r[3]);
+                    $('#merchant').html(r[4]);
+                    $('#cardno').html(r[5]);
+
+                    if (r[6] == 'CC') {
+                        $('#paymode').html('Credit Card');
+                    }
+                    else if (r[6] == 'DC') {
+                        $('#paymode').html('Debit Card');
+                    }
+                    else {
+                        $('#paymode').html('Other');
+                    }
+                    //$('#paymode').html(r[6]);
+                    $('#amt').html(r[7]);
+                    $("#qrimage").attr("src", "@Url.Action("ReceiptQRCode", "AllKartPayment")/" + getdatetime());
+                }
+                else if (r[0] == '108') {
+                    $('#status').html("Transaction Failed: Invalid Card Details");
+                    $('#message').html("Sorry!");
+
+                    $('.trans-dtls').hide();
+                    $("#statusimg").attr("src", "/Content/images/denied.png");
+
+
+                }
+                else {
+                    $('#status').html("Transaction Failed : Server Error");
+                    $('#message').html("Sorry!");
+
+                    $('.trans-dtls').hide();
+                    $("#statusimg").attr("src", "/Content/images/denied.png");
+                }
+
+                var $slideParentIndex = 2;
+                var $slideWrapperWidth = $('.wrapper').outerWidth();
+                $('.slide-mn').css({
+                    transform: 'translateX(-' + ($slideWrapperWidth * $slideParentIndex) + 'px)'
+                });
+
+                //$('.ech-slide-mn').css({
+                //    'margin-left:120px'
+                //});
+
+                $('ul.product-steps li').eq($slideParentIndex).addClass('active');
+                $('ul.product-steps li').eq(($slideParentIndex) - 1).addClass('completed');
+
+            },
+
+            error: function (jqXHR, textStatus, err) {
+                //alert(err);
+            }
+
+
+        });
+    }
+
+</script>
+<script>
+    function CardValidation() {
+        var form = $('#CardValidation')[0];
+        var data = new FormData(form);
+        $.ajax({
+            url: "@Url.Action("CardValidation", "AllKartPayment")",
+            type: "Post",
+            data: data,
+            contentType: "application/json",
+            dataType: "text",
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                var r = data.split(',');
+                // return Content("005:Success:" + Session["TransactionID"] + ":" + Session["TransactionDate"] + ":" + Session["MerchantId"] + ":" + Session["CardNo"] + ":" + Session["CardType"]+":" + Session["Amt"], "text /html");
+                //alert(data);
+                if (r[0] == '005') {
+
+                    $('.trans-dtls').show();
+                    $('#transactionid').html(r[2]);
+                    $('#transactiondate').html(r[3]);
+                    $('#merchant').html(r[4]);
+                    $('#cardno').html(r[5]);
+
+                    if (r[6] == 'CC') {
+                        $('#paymode').html('Credit Card');
+                    }
+                    else if (r[6] == 'DC') {
+                        $('#paymode').html('Debit Card');
+                    }
+                    else {
+                        $('#paymode').html('Other');
+                    }
+                   // $('#paymode').html(r[6]);
+                    $('#amt').html(r[7]);
+                    $("#qrimage").attr("src", "@Url.Action("ReceiptQRCode", "AllKartPayment")/" + getdatetime());
+
+                }
+                else if (r[0] == '108') {
+                    $('#status').html("Transaction Failed: Invalid Card Details");
+                    $('#message').html("Sorry!");
+
+                    $('.trans-dtls').hide();
+                    $("#statusimg").attr("src", "/Content/images/denied.png");
+
+
+                }
+                else {
+                    $('#status').html("Transaction Failed : Server Error");
+                    $('#message').html("Sorry!");
+
+                    $('.trans-dtls').hide();
+                    $("#statusimg").attr("src", "/Content/images/denied.png");
+                }
+
+                var $slideParentIndex = 2;
+                var $slideWrapperWidth = $('.wrapper').outerWidth();
+                $('.slide-mn').css({
+                    transform: 'translateX(-' + ($slideWrapperWidth * $slideParentIndex) + 'px)'
+                });
+                $('ul.product-steps li').eq($slideParentIndex).addClass('active');
+                $('ul.product-steps li').eq(($slideParentIndex) - 1).addClass('completed');
+
+            },
+            error: function (jqXHR, textStatus, err) {
+                alert(err);
+            }
+        });
+    }
+
+</script>
+<script type='text/javascript'>
+    $('#cardnumber').keypress(function (e) {
+         $('#imgCardBrand').attr("src", "");
+        var CardNo = document.getElementById('cardnumber').value;
+        var str = CardNo.length;
+        var keyCode = event.which || event.keyCode;
+        /*
+   8 - (backspace)
+   32 - (space)
+   48-57 - (0-9)Numbers
+ */
+        if ((keyCode != 8 || keyCode == 32) && (keyCode < 48 || keyCode > 57)) {
+            e.preventDefault();
+        }
+        if (str >= 4)
+        {
+            if (CardNo.match("^5"))
+            {
+                // do this if begins with 4
+                //alert('123');
+                $('#hdnCardBrand').val('M');
+                $('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/master-card.png")");
+                // alert($('#hdnCardBrand').val());
+            }
+            else if (CardNo.match("^4"))
+            {
+                // do this if begins with 5
+                $('#hdnCardBrand').val('V');
+                // $('#imgCardBrand').attr("src", "Content/New_Content/images/drop-visa.png");
+
+                $('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/drop-visa.png")");
+
+                // alert($('#hdnCardBrand').val());
+            }
+            else if (CardNo.match("^6")) {
+                // do this if begins with 6
+                $('#hdnCardBrand').val('R');
+                // $('#imgCardBrand').attr("src", "Content/New_Content/images/drop-rupay.png");
+
+                $('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/drop-rupay.png")");
+
+                // alert($('#hdnCardBrand').val());
+            }
+
+            else {
+                // do this if begins with 6
+                $('#hdnCardBrand').val('M');
+                // $('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/master-card.png")");
+                // alert($('#hdnCardBrand').val());
+            }
+
+            if ($('#cardnumber').val().length == 19) {
+                $('#firstname').focus();
+            }
+        }
+        else if (str == 0) {
+            $('#imgCardBrand').attr("src", "");
+        }
+    });
+
+
+</script>
+<script type='text/javascript'>
+    $('#firstname').keypress(function (e) {
+        var keyCode = event.which || event.keyCode;
+
+        if (!(
+            (keyCode >= 65 && keyCode <= 90)
+            || (keyCode >= 97 && keyCode <= 122))
+            && keyCode != 8 && keyCode != 32) {
+            e.preventDefault();
+        }
+
+        if ($('#firstname').val().length == 3) {
+            $('#lastname').focus();
+        }
+
+    });
+</script>
+
+<script type='text/javascript'>
+    $('#lastname').keypress(function (e) {
+        var keyCode = event.which || event.keyCode;
+
+        if (!(
+            (keyCode >= 65 && keyCode <= 90)
+            || (keyCode >= 97 && keyCode <= 122))
+            && keyCode != 8 && keyCode != 32) {
+            e.preventDefault();
+        }
+        if ($('#lastname').val().length == 4) {
+            $('#month').focus();
+        }
+
+    });
+</script>
+
+<script type='text/javascript'>
+    $('#cvv').keypress(function (e) {
+        var cvv = document.getElementById('cvv').value;
+        var str = cvv.length;
+        var keyCode = event.which || event.keyCode;
+        /*
+   8 - (backspace)
+   32 - (space)
+   48-57 - (0-9)Numbers
+ */
+        if ((keyCode != 8 || keyCode == 32) && (keyCode < 48 || keyCode > 57)) {
+            e.preventDefault();
+        }
+
+    });
+</script>
+
+<script type="text/javascript">
+    function CardImages() {
+         var CardNo = document.getElementById('cardnumber').value;
+        var str = CardNo.length;
+ //     //  var keyCode = event.which || event.keyCode;
+ //       /*
+ //  8 - (backspace)
+ //  32 - (space)
+ //  48-57 - (0-9)Numbers
+ //*/
+ //       if ((keyCode != 8 || keyCode == 32) && (keyCode < 48 || keyCode > 57)) {
+ //           e.preventDefault();
+ //       }
+        if (str >= 4) {
+            if (CardNo.match("^5")) {
+                // do this if begins with 4
+                //alert('123');
+                $('#hdnCardBrand').val('M');
+                $('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/master-card.png")");
+                // alert($('#hdnCardBrand').val());
+            }
+            else if (CardNo.match("^4")) {
+                // do this if begins with 5
+                $('#hdnCardBrand').val('V');
+                // $('#imgCardBrand').attr("src", "Content/New_Content/images/drop-visa.png");
+
+                $('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/drop-visa.png")");
+
+
+                // alert($('#hdnCardBrand').val());
+            }
+            else if (CardNo.match("^6")) {
+                // do this if begins with 6
+                $('#hdnCardBrand').val('R');
+                // $('#imgCardBrand').attr("src", "Content/New_Content/images/drop-rupay.png");
+
+                $('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/drop-rupay.png")");
+
+                // alert($('#hdnCardBrand').val());
+            }
+
+            else {
+                // do this if begins with 6
+                $('#hdnCardBrand').val('M');
+                //$('#imgCardBrand').attr("src", "@Url.Content("~/Content/images/master-card.png")");
+                // alert($('#hdnCardBrand').val());
+            }
+
+            if ($('#cardnumber').val().length == 19) {
+                $('#firstname').focus();
+            }
+
+        }
+        else if (str == 0)
+        {
+             $('#imgCardBrand').attr("src", "");
+        }
+
+    }
+</script>
+
+<script>
+    $('#proceed').click(function () {
+        if ($('input[name="pay-meth"]:checked').val() == 'CC') {
+            $('#hdncardtypevalue').val('CC')
+            var $this = $(this);
+            var $slideParentIndex = ($this.parents('.ech-slide').index()) + 1;
+            var $slideWrapperWidth = $('.wrapper').outerWidth();
+            $('.slide-mn').css({
+                transform: 'translateX(-' + ($slideWrapperWidth * $slideParentIndex) + 'px)'
+            });
+            $('ul.product-steps li').eq($slideParentIndex).addClass('active');
+            $('ul.product-steps li').eq(($slideParentIndex) - 1).addClass('completed');
+
+
+        }
+        else if ($('input[name="pay-meth"]:checked').val() == 'DC') {
+            $('#hdncardtypevalue').val('DC')
+            var $this = $(this);
+            var $slideParentIndex = ($this.parents('.ech-slide').index()) + 1;
+            var $slideWrapperWidth = $('.wrapper').outerWidth();
+            $('.slide-mn').css({
+                transform: 'translateX(-' + ($slideWrapperWidth * $slideParentIndex) + 'px)'
+            });
+            $('ul.product-steps li').eq($slideParentIndex).addClass('active');
+            $('ul.product-steps li').eq(($slideParentIndex) - 1).addClass('completed');
+
+        }
+
+
+        else if ($('input[name="pay-meth"]:checked').val() == 'NM') {
+
+            $('#hdncardtypevalue').val('NM')
+            swal("Currently this Payment type is not available.");
+        }
+
+        else if ($('input[name="pay-meth"]:checked').val() == 'PM') {
+
+            $('#hdncardtypevalue').val('PM')
+            var $this = $(this);
+            var $slideParentIndex = ($this.parents('.ech-slide').index()) + 1;
+            var $slideWrapperWidth = $('.wrapper').outerWidth();
+            $('.slide-mn').css({
+                transform: 'translateX(-' + ($slideWrapperWidth * $slideParentIndex) + 'px)'
+            });
+            $('ul.product-steps li').eq($slideParentIndex).addClass('active');
+            $('ul.product-steps li').eq(($slideParentIndex) - 1).addClass('completed');
+        }
+        else if ($('input[name="pay-meth"]:checked').val() == 'W') {
+            $('#hdncardtypevalue').val('W')
+            swal("Currently this Payment type is not available.");
+        }
+        else {
+            $('#hdncardtypevalue').val('CC')
+            swal("Currently this Payment type is not available.");
+        }
+    });
+</script>

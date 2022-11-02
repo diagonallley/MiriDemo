@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutProduct.cshtml";
+}
+<style>
+    #main {
+        position: absolute;
+    }
+</style>
+<div id="main">
+    <div class="wrapper main-wrapper">
+        <header id="header">
+            <div class="logo-hldr">
+                <div class="logo-left">
+                    <a href="#"><img src="~/Content/images/logo.png" alt=""></a>
+                </div>
+                <div class="logo-right">
+                    <hr>
+                    <h1>Miri Experience Suite</h1>
+                    <p>VERSION 1.3</p>
+                </div>
+            </div>
+            <div>
+                <a class="log-out-btn logoutBtn"><img src="~/Content/images/log-out.png" alt=""></a>
+                <div class="log-out-sec">
+                    <div class="log-out-wrap">
+                        <h6>Are you sure you want to Log out ?</h6>
+                        <div class="log-btns">
+                            <a href="@Url.Action("SignOut","Login")" class="right">Yes</a>
+                            <a class="no-btn noBtn right">No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <article id="container">
+            <ul class="steps">
+                <li class="active">
+                    <h6>1</h6>
+                    <p>Choose Product</p>
+                </li>
+                <li>
+                    <h6>2</h6>
+                    <p>Register</p>
+                </li>
+                <li>
+                    <h6>3</h6>
+                    <p>Download</p>
+                </li>
+                <li>
+                    <h6>4</h6>
+                    <p>TRY <span id="tryTab">MIRI </span></p>
+                </li>
+            </ul>
+            <div class="main-hldr">
+                <!-- 1St Slide -->
+                <div class="main-content">
+                    <div class="left-hldr">
+                        <p class="lodeg-in">Logged In as</p>
+                        <div class="pro-pic-hldr" style="background-image: url('@Url.Action("EmpImage", "Product")/@Session["userid"]'); background-repeat: no-repeat;background-size: 100% 100%;"></div>
+                        <h6>@ViewBag.name</h6>
+                        <p class="busi-ana">@ViewBag.designation</p>
+                        <ul class="user-lst">
+                            <li>
+                                <span class="img-hldr"><img src="~/Content/images/mail.png" alt=""></span>@ViewBag.email
+                            </li>
+                            <li>
+                                <span class="img-hldr"><img src="~/Content/images/phone.png" alt=""></span>@ViewBag.mobile
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="center-hldr">
+                        <div class="center-cnt">
+                            <h6>Choose below any <b>MIRI product</b> to experience</h6>
+                            <ul class="product-lst productLst clearfix">
+                                <li data-content="MIRI ID" onclick="changeproduct(1)">
+                                    <a>
+                                        <span><img src="~/Content/images/correct.png" alt=""></span>
+                                        <img src="@Url.Content("~/Content/images/product-01.png")" alt="">
+                                    </a>
+                                </li>
+                                <li data-content="MIRI Token" onclick="changeproduct(2)">
+                                    <a>
+                                        <span><img src="~/Content/images/correct.png" alt=""></span>
+                                        <img src="@Url.Content("~/Content/images/product-02.png")" alt="">
+                                    </a>
+                                </li>
+                                <li data-content="MIRI Card" onclick="changeproduct(4)">
+                                    <a>
+                                        <span><img src="~/Content/images/correct.png" alt=""></span>
+                                        <img src="@Url.Content("~/Content/images/product-04.png")" alt="">
+                                    </a>
+                                </li>
+                                <li data-content="MIRI Pay" onclick="changeproduct(5)">
+                                    <a>
+                                        <span><img src="~/Content/images/correct.png" alt=""></span>
+                                        <img src="@Url.Content("~/Content/images/product-03.png")" alt="">
+                                    </a>
+                                </li>
+
+                                <li data-content="MIRI Sso" onclick="changeproduct(3)">
+                                    <a>
+                                        <span><img src="~/Content/images/correct.png" alt=""></span>
+                                        <img src="@Url.Content("~/Content/images/Byfrost-01.jpg")" alt="">
+                                    </a>
+                                </li>
+                                <li data-content="BYFROST" onclick="changeproduct(6)">
+                                    <a>
+                                        <span><img src="~/Content/images/correct.png" alt=""></span>
+                                        <img src="@Url.Content("~/Content/images/POSITIVEPAY.png")" alt="">
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix">
+                            <button type="button" class="right primary-btn productBtn" disabled="disabled" /> <a><img src="@Url.Content("~/Content/images/white-right.png")" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="right-hldr">
+                        <div class="miri-slder miriSlider owl-carousel">
+                            <div class="mini-info miriInfo">
+                                <h5>MIRI ID–ELIMINATE USERNAME PASSWORD</h5>
+                                <ul>
+                                    <li>Your customer and employees are facing “Password fatigue”</li>
+                                    <li>They are re-using their credentials</li>
+                                    <li>Password sharing is rampant across businesses</li>
+                                    <li>Breaches occur when credentials are compromised</li>
+                                </ul>
+                                <h6>“Make your credentials fool-proof”</h6>
+                                <p>Use Miri ID to</p>
+                                <ul>
+                                    <li>Generate secure credential at will</li>
+                                    <li>Never re-use credentials</li>
+                                    <li>Eliminate credential sharing</li>
+                                    <li>Save time and money by being pro-active instead of reactive</li>
+                                </ul>
+                            </div>
+                            <div class="mini-info miriInfo">
+                                <h5>MIRI Token–offline OTP</h5>
+                                <ul>
+                                    <li>Are your SMS OTPs not reaching your customer?</li>
+                                    <li>Dependency on networks carriers and SMS gateways leading to business loss?</li>
+                                    <li>Is your 2FA/MFA still leading to fraud?</li>
+                                </ul>
+                                <h6>GENERATE OFFLINE OTP AT WILL</h6>
+                                <ul>
+                                    <li>Gives you 100% authentication assurance</li>
+                                    <li>Bring down authentication failure</li>
+                                    <li>No-customer transaction time-outs</li>
+                                    <li>Bring down transaction timer to matter of seconds</li>
+                                    <li>Gain more business to internet Banking & e–Comm</li>
+                                </ul>
+                            </div>
+                            <div class="mini-info miriInfo">
+                                <h5>Miri Pay</h5>
+                                <ul>
+                                    <li>Your customers are facing “transaction fraud”</li>
+                                    <li>Are you customers looking for a simple, safe and easy to use payment method?</li>
+                                    <li>Are you losing business because your users fear using card online?</li>
+                                </ul>
+                                <h6>Use Miri Pay to</h6>
+                                <ul>
+                                    <li>Secures Customer Information and Reduces Fraud</li>
+                                    <li>Safe & secure online purchase of goods and services</li>
+                                    <li>Send funds to someone </li>
+                                    <li>Reduces total cost and complexity in payment processing.</li>
+                                </ul>
+                            </div>
+                            <div class="mini-info miriInfo">
+                                <h5>Miri Card- Eliminate the Physical Card</h5>
+                                <ul>
+                                    <li>Are your card numbers being compromised during transaction?</li>
+                                    <li>Are you losing business because your users fear using card online?</li>
+                                    <li>Are your customers looking for an easy to use and secure way to use their card?</li>
+                                </ul>
+                                <p class="dyn-txt">Dynamic self destructing numbers</p>
+                                <p class="dyn-txt">Disguised like actual card numbers</p>
+                                <h6 class="card-txt"><b>Miri Card- Virtual Card</b> will</h6>
+                                <ul>
+                                    <li>Never reveal sensitive card information </li>
+                                    <li>Eliminate the possibility of card information theft</li>
+                                    <li>No customer transaction times-outs</li>
+                                    <li>Bring down the transition time - outs</li>
+                                    <li>Bring down the transaction times to matter of seconds</li>
+                                    <li>Gain more business through internet Banking and e-com</li>
+                                </ul>
+                            </div>
+                            <div class="mini-info miriInfo">
+                                <h5>BYFROST</h5>
+                                <ul>
+                                    <li>Are your customers looking for less singing on?</li>
+                                    <li>Are your customers looking for an easy to use and secure way to use multiple application with same credentials?</li>
+                                    <li>Your customer & employees are facing “Password fatigue”</li>
+                                </ul>
+                                <h6>Use BYFROST to</h6>
+                                <ul>
+                                    <li>Allows users to remember and manage less passwords and usernames for each application.</li>
+                                    <li>Streamline the process of signing on and using applications—no need to re-enter passwords.</li>
+                                    <li>Lessens the chance of phishing.</li>
+                                    <li>Less complaints or trouble about passwords for IT helpdesks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END 1St Slide -->
+            </div>
+        </article>
+        <div class="ovly"></div>
+    </div>
+</div>
+
+<!--main-->
+
+<script>
+    var product = 0;
+    function JSalert() {
+        swal("Currently this product is not available to try.\nPlease select another product.");
+    }
+    function changeproduct(p) {
+        if (p == 5) {
+            window.open("https://ebtintapps.manipaltechnologies.com/MiriPay/");
+        }
+        else if (p == 3) {
+            window.open("https://mirisso.manipaltechnologies.com/");
+        }
+        else if (p == 6) {
+            window.open("https://mmcpayment.manipaltechnologies.com/PPPlus/Verification");
+        }
+
+        else {
+            product = p;
+        }
+    }
+</script>

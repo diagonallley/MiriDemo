@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8"> <!-- utf-8 works for most cases -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+<meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+<meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no"> <!-- Tell iOS not to automatically link certain text strings. -->
+<title>Miri</title>
+<!--[if mso]>
+    <style>
+        * {
+            font-family: 'PT Sans', Arial, Helvetica, sans-serif !important;
+        }
+    </style>
+<![endif]-->
+
+<!--[if !mso]>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+<![endif]-->
+
+<!-- CSS Reset : BEGIN -->
+    <style>
+
+        /* What it does: Remove spaces around the email design added by some email clients. */
+        /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        /* What it does: Uses a better rendering method when resizing ~ in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+
+        /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+        a {
+            text-decoration: none;
+        }
+
+        /* What it does: A work-around for email clients meddling in triggered links. */
+        a[x-apple-data-detectors],  /* iOS */
+        .unstyle-auto-detected-links a,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from displaying a download button on large, non-linked ~. */
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+        .im {
+            color: inherit !important;
+        }
+
+        /* If the above doesn't work, add a .g-img class to any image in question. */
+        img.g-img + div {
+            display: none !important;
+        }
+
+        /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+        /* Create one of these media queries for each additional viewport size you'd like to fix */
+
+        /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u ~ div .email-container {
+                min-width: 320px !important;
+            }
+        }
+        /* iPhone 6, 6S, 7, 8, and X */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+            u ~ div .email-container {
+                min-width: 375px !important;
+            }
+        }
+        /* iPhone 6+, 7+, and 8+ */
+        @media only screen and (min-device-width: 414px) {
+            u ~ div .email-container {
+                min-width: 414px !important;
+            }
+        }
+
+    </style>
+
+    <!-- What it does: Makes background ~ in 72ppi Outlook render at correct size. -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+    <!-- CSS Reset : END -->
+
+    <!-- Progressive Enhancements : BEGIN -->
+    <style>
+
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td-primary:hover,
+        .button-a-primary:hover {
+            background: #555555 !important;
+            border-color: #555555 !important;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 600px) {
+
+            /* What it does: Adjust typography on small screens to improve readability */
+            .commerce-txt{
+                font-size: 30px !important;
+                line-height: 38px !important;
+            }
+            .commerce-ready{
+                font-size: 34px !important;
+                line-height: 48px !important;
+            }
+            .price-val{
+                font-size: 75px !important;
+                line-height: 80px !important;
+            }
+            .price-text{
+                font-size: 22px !important;
+                line-height: 26px !important;
+            }
+            .motto-txt{
+                font-size: 24px !important;
+                line-height: 28px !important;
+            }
+            .wow-txt{
+                font-size: 30px !important;
+                line-height: 37px !important;
+            }
+
+        }
+
+    </style>
+    <!-- Progressive Enhancements : END -->
+
+<style type="text/css">
+    @media only screen and (min-width: 800px) { .maxW { width:602px !important; } }
+</style>
+
+
+</head>
+
+<body style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #ffffff;" bgcolor="#FFFFFF">
+    <center style="width: 100%; background-color: #FFFFFF;">
+    <!--[if mso | IE]>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="602" style="background-color: #FFFFFF;">
+    <tr>
+    <td>
+    <![endif]-->
+    <div class="maxW" style="max-width:602px; margin:0 auto;">
+        <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" style="margin: auto;">
+            <tr>
+                            <td align="center" valign="top" style="min-width:240px; max-width:602px; border:#cccccc 1px solid;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="min-width:240px; max-width:600px;">
+                                    <tr>
+                                        <td valign="top">
+                                            <img src="https://mmcpayment.com/TestMES/Email/banner.jpg" alt="" border="0" style="width: 100%; height: auto; display: block; max-width: 600px;">
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td valign="top">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="9%" valign="top"></td>
+                                                    <td width="82%" valign="top">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="30"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 14px; line-height: 19px; color: #01192F; text-align: left;">Dear  {Customer First Name},</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="15"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 14px; line-height: 19px; color: #01192F; text-align: left;">Thank you for registering to experience our <strong style="font-weight: 700;">{MiriID/MiriToken}.</strong></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="15"></td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td width="100%" valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 14px; line-height: 19px; color: #01192F; text-align: left;">You’re just a few clicks away from starting your Miri Experience journey. To start it, <strong style="font-weight: 700;">please follow the steps below.</strong></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="35"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="27px" valign="top"><img src="https://mmcpayment.com/TestMES/Email/one.jpg" alt=""></td>
+                                                                            <td width="40px" valign="top"></td>
+                                                                            <td valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 14px; line-height: 19px; color: #01192F; text-align: left;">Please choose the platform for downloading {MiriID/MiriToken} App and scan the QR code</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="10"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="13px" valign="top">&nbsp;</td>
+                                                                            <td valign="top">
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-left: 1px solid #000;">
+                                                                                    <tr>
+                                                                                        <td width="50px" valign="top">&nbsp;</td>
+                                                                                        <td valign="top">
+                                                                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tr>
+                                                                                                    <td width="100%" valign="top" height="25"></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tr>
+                                                                                                    <td valign="middle" style="text-align: center;"><a href="{androlink}"><img  src="https://mmcpayment.com/TestMES/Email/android.jpg" alt=""></a></td>
+                                                                                                    <td width="20" valign="top"></td>
+                                                                                                    <td valign="middle" style="text-align: center;"><a href="{applelink}"><img  src="https://mmcpayment.com/TestMES/Email/apple.jpg" alt=""></a></td>
+                                                                                                    <td width="20" valign="top"></td>
+                                                                                                    <td valign="middle" style="text-align: center;"><a href="{desktoplink}"><img src="https://mmcpayment.com/TestMES/Email/desktop.jpg" alt=""></a></td>
+                                                                                                    <td width="20" valign="top"></td>
+                                                                                                    <td width="45" valign="bottom" style="text-align: center;"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td colspan="7" width="100%" valign="top" height="10"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td valign="top" style="text-align: center;">
+                                                                                                        <img id="qrandroid" src="{qrandroid}" alt="" style="display: block; width: 100%; height: auto; display: block; max-width: 104px;">
+                                                                                                    </td>
+                                                                                                    <td width="20" valign="top"></td>
+                                                                                                    <td valign="top" style="text-align: center;">
+                                                                                                        <img id="qrapple" src="{qrapple}" alt="" style="display: block; width: 100%; height: auto; display: block; max-width: 104px;">
+                                                                                                    </td>
+                                                                                                    <td width="20" valign="top"></td>
+                                                                                                    <td valign="top" style="text-align: center;">
+                                                                                                        <img id="qrdesktop" src="{qrdesktop}" alt="" style="display: block; width: 100%; height: auto; display: block; max-width: 104px;">
+                                                                                                    </td>
+                                                                                                    <td width="20" valign="top"></td>
+                                                                                                    <!--<td width="45" valign="bottom" style="text-align: center;">
+                                                                                                        <img src="{img}" alt="" style="display: block;" style="display: block; width: 100%; height: auto; display: block; max-width: 45px;">
+                                                                                                    </td>-->
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td colspan="7" width="100%" valign="top" height="30"></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="27px" valign="middle"></td>
+                                                                            <td width="40px" valign="middle"></td>
+                                                                            <td valign="middle" style="border-bottom: 1px dashed rgba(2, 25, 48, 0.20);"></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="25"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="27px" valign="middle"><img src="https://mmcpayment.com/TestMES/Email/two.jpg" alt=""></td>
+                                                                            <td width="40px" valign="middle"></td>
+                                                                            <td valign="middle" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 14px; line-height: 19px; color: #01192F; text-align: left;">Activate your {MiriID/MiriToken} App using below Activation code or scan the QR code</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="13px" valign="top">&nbsp;</td>
+                                                                            <td valign="top">
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-left: 1px solid #000;">
+                                                                                    <tr>
+                                                                                        <td width="50px" valign="top">&nbsp;</td>
+                                                                                        <td valign="top">
+                                                                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                                <tr>
+                                                                                                    <td width="115" valign="top">
+                                                                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                                            <tr>
+                                                                                                                <td valign="top" height="30">&nbsp;</td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td width="100%" valign="top" style="text-align: center;">
+                                                                                                                    <img src="https://mmauth.com/MTLAttendance/generateqr/qrcode/{123456}" alt="" style="display: block; width: 100%; height: auto; display: block; max-width: 115px;">
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td valign="top" height="30">&nbsp;</td>
+                                                                                                            </tr>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                    <td width="20" valign="top"></td>
+                                                                                                    <td valign="middle">
+                                                                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                                                            <tr>
+                                                                                                                <td valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 24px; line-height: 32px; color: #021930; font-weight: 700; letter-spacing: 3px; text-align: left;">
+                                                                                                                    <strong>{4256 8745 1452 2356}</strong>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="27px" valign="middle"></td>
+                                                                            <td width="40px" valign="middle"></td>
+                                                                            <td valign="middle" style="border-bottom: 1px dashed rgba(2, 25, 48, 0.20);"></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="25"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="27px" valign="top"><img src="https://mmcpayment.com/TestMES/Email/three.jpg" alt=""></td>
+                                                                            <td width="40px" valign="middle"></td>
+                                                                            <td valign="middle" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 14px; line-height: 19px; color: #01192F; text-align: left;"><strong style="font-weight: 700;">Use the {MiriID/MiriToken} App</strong> & Generate your <strong style="font-weight: 700;">{MiriID/MiriToken}</strong></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="70"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 20px; line-height: 26px; color: #01192F; text-align: center;">Our Products</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="15"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="1" style="background: #B74A3D; opacity: 0.5;"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="25"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <img src="https://mmcpayment.com/TestMES/Email/miriid.jpg" alt="" style="display: inline-block; vertical-align: middle;">
+                                                                    <img src="https://mmcpayment.com/TestMES/Email/miritoken.jpg" alt="" style="display: inline-block; vertical-align: middle;">
+                                                                    <img src="https://mmcpayment.com/TestMES/Email/miripay.jpg" alt="" style="display: inline-block; vertical-align: middle;"><br>
+                                                                    <img src="https://mmcpayment.com/TestMES/Email/byfret.jpg" alt="" style="display: inline-block; vertical-align: middle;">
+                                                                    <img src="https://mmcpayment.com/TestMES/Email/miricard.jpg" alt="" style="display: inline-block; vertical-align: middle;">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="1"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td width="9%" valign="top"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%" valign="top" height="50"></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" style="background: #F2F2F2">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="9%" valign="top"></td>
+                                                    <td width="82%" valign="top">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="30px"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 20px; color: #727272; text-align: left;">To know more, contact us at:</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; font-weight: 700; color: #01192F; text-align: left;">Emerging Businesses & Technologies</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 20px; color: #01192F; text-align: left;">101/123, 1st Floor, The Summit Business Bay, Off Andheri Kurla Road, Opp. PVR Cinema, Next to WEH Metro Station, Andheri East, Mumbai 400093</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="10px"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                            <td width="16" valign="middle">
+                                                                                <img src="https://mmcpayment.com/TestMES/Email/mail.png" alt="">
+                                                                            </td>
+                                                                            <td width="5" valign="middle"></td>
+                                                                            <td width="155" valign="middle">
+                                                                                <a href="mailto:sales@manipalgroup.info" target="_blank" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; line-height: 16px; color: #437396; text-align: left; word-break: keep-all;">sales@manipalgroup.info</a>
+                                                                            </td>
+                                                                            <td width="5" valign="middle"></td>
+                                                                            <td width="5" valign="middle">
+                                                                                <span style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; line-height: 16px; color: #00192E; text-align: left;">|</span>
+                                                                            </td>
+                                                                            <td width="10" valign="middle"></td>
+                                                                            <!--<td width="14" valign="middle">
+                                                                                <img src="https://mmcpayment.com/TestMES/Email/phone.png" alt="" style="display: inline-block; vertical-align: middle;">
+                                                                            </td>-->
+                                                                            <td width="5" valign="middle"></td>
+                                                                            <td width="auto" valign="middle">
+                                                                                <a href="tel:022 4936 8700" target="_blank" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; line-height: 16px; color: #437396; text-align: left;">022 4936 8700</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" valign="top" height="30px"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td width="9%" valign="top"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+        </table>
+    </div>
+    <!--[if mso]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+    </center>
+</body>
+</html>

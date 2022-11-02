@@ -1,0 +1,870 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutMiriCard.cshtml";
+}
+
+<style>
+    #main {
+        position: absolute;
+    }
+</style>
+<!--main-->
+<div id="main">
+    <div class="wrapper main-wrapper">
+        <header id="header">
+            <div class="logo-hldr">
+                <div class="logo-left">
+                    <a href="#"><img src="~/Content/images/logo.png" alt=""></a>
+                </div>
+                <div class="logo-right">
+                    <hr>
+                    <h1>Miri Experience Suite</h1>
+                    <p>VERSION 1.3</p>
+                </div>
+            </div>
+            <div>
+                <a class="log-out-btn logoutBtn"><img src="~/Content/images/log-out.png" alt=""></a>
+                <div class="log-out-sec">
+                    <div class="log-out-wrap">
+                        <h6>Are you sure you want to Log out ?</h6>
+                        <div class="log-btns">
+                            <a href="@Url.Action("SignOut","Login")" class="right">Yes</a>
+                            <a class="no-btn noBtn right">No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <article id="container">
+            <ul class="steps">
+                <li class="active completed">
+                    <h6>1</h6>
+                    <p>Choose Product</p>
+                </li>
+                <li class="active">
+                    <h6>2</h6>
+                    <p>Register</p>
+                </li>
+                <li>
+                    <h6>3</h6>
+                    <p>Download</p>
+                </li>
+                <li>
+                    <h6>4</h6>
+                    <p>TRY <span id="tryTab">MIRI CARD</span></p>
+                </li>
+            </ul>
+            <div class="main-hldr">
+
+                <!-- 2nd Slide -->
+
+                <div class="main-content">
+
+                    <div class="center-hldr single-center card-reg-form" style="margin-bottom:0px;">
+
+                        <div class="center-cnt">
+                            <div class="reg-heading">
+                                <div>
+                                    <a href="@Url.Action("Index","Product")" class="back-btn"><img src="~/Content/images/back-arrow.png" alt=""> Back |</a>
+                                    <img src="~/Content/images//product-04.png" class="miri-img" alt="">
+                                </div>
+                                <p class="please-enter">Please enter your details</p>
+                            </div>
+                            <form id="registerform">
+                                <div class="form-hldr" style="margin-top: 25px;">
+                                    <div class="pro-upld-cnt">
+                                        <div class="pro-upld">
+                                            <div class="step-one stepOne">
+                                                <img src="~/Content/images//thumb-uder-gray.png" alt="" class="img-thumb">
+                                                <p class="open-webcam">Add <br> Profile Image</p>
+                                            </div>
+                                            <div class="step-two-hldr stepTwo" id="stepid" style="position:absolute">
+                                                <div class="step-two">
+                                                    <div class="ech-step webCamStep">
+                                                        <img src="~/Content/images//web-lrg.png" alt="">
+                                                        <p>Take Photo</p>
+                                                    </div>
+                                                    <div class="ech-step">
+                                                        <input type="file" name="file" id="file" class="file-upload picUpload" accept=".png, .jpg, .jpeg">
+                                                        <img src="~/Content/images//file.png" alt="">
+                                                        <p>Upload</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image_upload_preview_hldr">
+                                                <div class="image_upload_preview_cnt">
+                                                    <img src="#" alt="" id="image_upload_preview" name="image_upload_preview" style="width:100%;height:100%;">
+                                                    <input type="hidden" name="camimage" id="camimage" />
+                                                </div>
+                                            </div>
+                                            @*<div class="web-cam-pic">
+                                                  <div class="web-cam-pic-cnt">
+                                                      <div id="proCameraVideo" class="video-cam"></div>
+                                                       <h6 class="proCameraVideoMsg">Webcam not detected !!!</h6>
+                                                  </div>
+                                                </div>*@
+                                            <!-- 12-03-2020 -->
+                                            <div class="web-cam-pic">
+                                                <div class="web-cam-pic-cnt">
+                                                    <div class="loader web-cam-loader">
+                                                        <svg class="circular" viewBox="25 25 50 50">
+                                                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
+                                                        </svg>
+                                                    </div>
+                                                    <!-- <div id="proCameraVideo" class="video-cam"></div> -->
+                                                    <h6 class="proCameraVideoMsg">Webcam not detected !!!</h6>
+                                                </div>
+                                            </div>
+                                            <!-- END 12-03-2020 -->
+                                        </div>
+                                        <!-- 12-03-2020 -->
+                                        <!-- <div class="btm-btns capture-photo-hldr">
+                                             <a class="capturePhoto">Capture Photo</a>
+                                        </div> -->
+                                        <div class="btm-btns back-to-photo-hldr">
+                                            <a class="backToPhoto">Back</a>
+                                        </div>
+                                        <!-- END 12-03-2020 -->
+
+                                        <div class="btm-btns change-photo">
+                                            <a class="changePhoto">Change Photo</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-right">
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" onchange="titleCase('firstname')" name="firstname" id="firstname" autocomplete="off">
+                                                <span class="label">First Name <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+                                            @*<p class="error-txt">Please Enter First Name</p>*@
+                                            <label for="firstname" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" onchange="titleCase('lastname')" name="lastname" id="lastname" autocomplete="off">
+                                                <span class="label">Last Name <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+                                            @*<p class="error-txt">Please Enter Last Name</p>*@
+                                            <label for="lastname" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="email" name="email" id="email" placeholder="&nbsp;" autocomplete="off">
+                                                <span class="label">Email Id <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+                                            @*<p class="error-txt">Please Enter Email Id</p>*@
+                                            <label for="email" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="mobile-input-hldr">
+                                                <div class="mobile-country">
+                                                    <div class="country-code">
+                                                        <input type="text" class="flagSelect phone-field">
+                                                    </div>
+                                                </div>
+                                                <div class="form-input">
+                                                    <input type="text" name="mobile" id="mobile" autocomplete="off" placeholder="&nbsp;">
+                                                    <span class="label">Mobile No. <sup>*</sup></span>
+                                                    <span class="border"></span>
+                                                </div>
+                                            </div>
+                                            <label for="mobile" generated="true" class="error error-txt"></label>
+                                            @*<p class="error-txt">Please Enter Mobile No.</p>*@
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" name="company" onchange="titleCase('company')" maxlength="80" id="company" autocomplete="off">
+                                                <span class="label">Company Name <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+                                            <label for="company" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" name="designation" maxlength="80" onchange="titleCase('designation')" id="designation" autocomplete="off">
+                                                <span class="label">Designation <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+                                            <label for="designation" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-select">
+                                                <select name="bank" id="bank" class="select-text" autocomplete="off" required>
+                                                    <option value=""></option>
+                                                    <option value="1">State Bank of India(SBI)</option>
+                                                    <option value="2">Allahabad Bank (ALB)</option>
+                                                    <option value="3">Andhra Bank (ANB)</option>
+                                                    <option value="4">Bank of Baroda (BOB)</option>
+                                                    <option value="5">Bank of India (BOI)</option>
+                                                    <option value="6">Canara Bank (CAN)</option>
+                                                    <option value="7">Central Bank of India (CBI)</option>
+                                                    <option value="8">Indian Bank (IND)</option>
+                                                    <option value="9">Indian Overseas Bank (IOB)</option>
+                                                    <option value="10">Oriental Bank of Commerce (OBC)</option>
+                                                    <option value="11">Punjab & Sind Bank  (PSB)</option>
+                                                    <option value="12">Syndicate Bank (SYN)</option>
+                                                    <option value="13">United Commercial Bank (UCB)</option>
+                                                    <option value="14">Union Bank of India (UBI)</option>
+                                                    <option value="15">Central Bank of India (CBI)</option>
+                                                    <option value="16">Indian Bank (IND)</option>
+                                                    <option value="17">Other Banks</option>
+                                                </select>
+                                                <span class="select-highlight"></span>
+                                                <span class="select-bar"></span>
+                                                <label class="select-label">Bank Name</label>
+                                                <label for="bank" generated="true" class="error error-txt"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-select">
+                                                <select name="ddlcardtype" id="ddlcardtype" class="select-text" required>
+                                                    <option value=""></option>
+                                                    <option value="1">Debit card</option>
+                                                    <option value="2">Credit card</option>
+                                                    <option value="3">Prepaid Card</option>
+                                                </select>
+                                                <span class="select-highlight"></span>
+                                                <span class="select-bar"></span>
+                                                <label class="select-label">Card Type</label>
+                                            </div>
+                                            <label for="ddlcardtype" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="brand-select">
+                                                <select name="ddlbrand" id="ddlbrand" class="select-text cardBrand" onchange="visile()" required>
+                                                    <option value="">Card Brand</option>
+                                                    <option value="1">Visa</option>
+                                                    <option value="2">MasterCard</option>
+                                                    <option value="3">RuPay</option>
+                                                </select>
+                                            </div>
+                                            <label for="ddlbrand" id="ddlbrand-error" generated="true" class="error error-txt"></label>
+                                        </div>
+                                    </div>
+                                    <div class="all-fields failure">
+                                        <p class="all-txt"><b>Registration not successful</b> Please enter all the fields</p>
+                                    </div>
+                                    <div class="all-fields success">
+                                        <p class="all-txt"><b>Registration is successful</b></p>
+                                    </div>
+                                    <div class="all-fields notify">
+                                        <p class="all-txt"><b>Notification</b>goes here</p>
+                                    </div>
+                                </div>
+                                <div class="btm-sec clearfix">
+                                    <div class="btm-sec-cnt right">
+                                        <p class="already-reg left">Already registered? <a href="#" onclick="AlreadyRegistration()">Click Here</a></p>
+                                        <button type="submit" id="btnSubmit" class="right primary-btn"><img src="~/Content/images//white-right.png" alt=""></button>
+                                    </div>
+                                </div>
+                                <div style="color:red;text-align:center" id="registerresult"></div>
+                            </form>
+                        </div>
+
+                        <div class="otp-popup">
+                            <h6>We have sent an OTP to your registered mobile number.</h6>
+                            <button type="button" class="primary-btn nextBtn">SUBMIT</button>
+                            <p class="already-reg">Haven’t received yet? <a href="#">Regenerate</a></p>
+                        </div>
+
+                        <!-- Camera Box -->
+                        <div class="crop-popup camPopup">
+                            <div class="crop-popup-body">
+                                <div id="proCameraVideo" class="video-cam"></div>
+                            </div>
+                            <div class="cap-btn-hldr clearfix">
+                                @*<a  class="cap-btn right capturePhoto">Capture Photo</a>*@
+                                @*<button type="button" id="btnclose" class="primary-btn right" style="margin-top:-10px;margin-left:10px">Close</button>
+        <button type="button" class="primary-btn right capturePhoto" style="margin-top:-10px">Capture Photo</button>*@
+                                <button type="button" id="btnclose" class="primary-btn right closeCam" style="background:#671d28;">Close</button>
+                                <button type="button" class="primary-btn right capturePhoto">Capture Photo</button>
+
+                            </div>
+                        </div>
+                        <div class="crop-popup-ovly"></div>
+                        <!-- END Camera Box -->
+                        <!-- Crop Box -->
+                        <div class="crop-popup cropPopup">
+                            <div class="crop-popup-body">
+                                <img src="#" alt="" id="crop-img">
+                            </div>
+                            <div class="clearfix">
+                                @*<button type="button" class="primary-btn right cropBtn">Crop</button>*@
+                                @*<button type="button" id="btnback" class="primary-btn right" style="margin-left:10px;">Close</button>*@
+                                <button type="button" id="btnback" class="primary-btn right closeCam1" style="margin-left:10px;background:#671d28;">Close</button>
+                                <button type="button" class="primary-btn right cropBtn">OK</button>
+                            </div>
+                        </div>
+                        <div class="crop-popup-ovly"></div>
+                        <!-- END Crop Box -->
+                    </div>
+                </div>
+                <!-- END 2nd Slide -->
+                <!-- 3rd Slide -->
+                <div class="main-content">
+                    <div class="center-hldr single-center cong-hldr">
+                        <div class="center-cnt">
+                            <h5 class="success-msg"><span>Congratulations!</span> You have Successfully registered for Miri CARD Demo</h5>
+                            <h6 class="complete-text">Please complete the below steps</h6>
+                            <ul class="steps-list">
+                                <li>
+                                    <div class="num-hldr"><p>1</p></div>
+                                    <div class="cnt-hldr clearfix">
+                                        <div class="left miri-cnt">
+                                            <p class="title topTitle">Please download Miri Card App by clicking below icons</p>
+                                            <ul class="links-lst">
+                                                <li>
+                                                    <button type="button" class="qr-btn downQrBtn"><img src="~/Content/images/android.png" alt=""> Android</button>
+                                                    <div class="qr-drop">
+                                                        <!-- 02-03-2020 -->
+                                                        <div class="qr-cls-btn-hldr clearfix">
+                                                            <a class="qr-cls-btn  qrClose"><img src="~/Content/images/qr-close.png" alt="" style="height:13px"></a>
+                                                        </div>
+                                                        <!-- 02-03-2020 -->
+                                                        <img src="~/Content/images/arrow.png" class="arrow" alt="">
+                                                        @*<img id="imgclose" src="~/Content/images/close-512.png" class="arrow" alt="">*@
+
+                                                        <img id="android_app_qr" src="~/Content/images//inner-qr-code.png" alt="">
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <button type="button" class="qr-btn downQrBtn"><img src="~/Content/images/ios.png" alt=""> iOS</button>
+                                                    <div class="qr-drop">
+                                                        <!-- 02-03-2020 -->
+                                                        <div class="qr-cls-btn-hldr clearfix">
+                                                            <a class="qr-cls-btn  qrClose"><img src="~/Content/images/qr-close.png" alt="" style="height:13px"></a>
+                                                        </div>
+                                                        <!-- 02-03-2020 -->
+                                                        <img src="~/Content/images//arrow.png" class="arrow" alt="">
+                                                        <img id="ios_app_qr" src="~/Content/images//inner-qr-code.png" alt="">
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div id="imgpc" class="qr-btn"><a id="pc_app_link" href="@Url.Action("AppLink", "MiriCard")/MiriCard Desktop"><img src="@Url.Content("~/Content/images/pc.png")" alt="">Desktop</a></div>
+                                                    @*<div class="qr-drop">
+            <img src="~/Content/images//arrow.png" class="arrow" alt="">
+            <img src="~/Content/images//inner-qr-code.png" alt="">
+        </div>*@
+                                                </li> 
+                                            </ul>
+                                        </div>
+                                        <div class="right miri-placholder"><img src="~/Content/images/miri-card.png" alt=""></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="num-hldr"><p>2</p></div>
+                                    <div class="cnt-hldr">
+                                        <p class="title">Activate your App using below Activation code or QR code</p>
+                                        <div class="code-txt">
+                                            <div class="code-img"><img id="qrimage" src="~/Content/images/qr-code.png" alt=""></div>
+                                            <p id="activationcode">4256 8745 1452 2356</p>
+                                        </div>
+                                        <!-- 07-01-2020 -->
+                                        <button type="button" class="reset-btn">
+                                            <a href="#" onclick="RestQr()"><img src="~/Content/images/re-try.png" alt="">RESET</a>
+                                        </button>
+                                        <!-- END 07-01-2020 -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="num-hldr"><p>3</p></div>
+                                    <div class="cnt-hldr">
+                                        <p class="title"><span class="activate">Use the App </span> and generate your <span id="product_name" class="miri-id">MIRI CARD</span></p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="main-overlay"></div>
+                        </div>
+                        <hr class="divider">
+                        <div class="btm-btn-hldr clearfix">
+                            <button type="button" class="right primary-btn nextBtn showLoader"><span>TRY YOUR MIRI CARD</span> <img src="~/Content/images//white-right.png" alt=""></button>
+                            @*<button type="button" style="margin-right:18px" class="right primary-btn" onclick="DeRegistration()"><span>De-Registration</span> <img src="~/Content/images/white-right.png" alt=""></button>*@
+                        </div>
+                        <a class="back-btn new-back-btn backBtn" onclick="Clear()"><img src="~/Content/images/back-arrow.png" alt="">Back</a>
+                        <div class="loader">
+                            <svg class="circular" viewBox="25 25 50 50">
+                                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- END 3rd Slide -->
+                <!-- 4th Slide -->
+                <div class="main-content">
+                    <div class="center-hldr single-center">
+                        <div>
+                            <a href="@Url.Action("Index","Product")" class="back-btn" style="color:black;"><img src="~/Content/images/back-arrow.png" alt=""> Back</a>
+                            @*<img src="~/Content/images//product-04.png" class="miri-img" alt="">*@
+                        </div>
+                        <div class="var-platform">
+                            <h5 style="text-align:center;">Now you can try your Miri Card in below sites</h5>
+                            @*<h6>You can try Miri CARD in various platform</h6> eCom *@
+                            @*<p>TRY IT with buying/booking below</p>*@
+                            <!-- 05-02-2020 -->
+                            <ul class="var-platform-lst verPlatformLst owl-carousel">
+                                <li>
+                                    <a href="@Url.Action("Index","AllKart")" target="_blank">
+                                        <span class="logo-hldr"><img src="~/Content/images/allkart-logo.png" alt=""></span>
+                                        <span class="img-hldr img-hldr-01"><img src="~/Content/images/list-01.jpg" alt=""></span>
+                                        <h5>Apple iPhone 11 (Black, 128 GB)</h5>
+                                        <div class="btm-hldr clearfix">
+                                            <p class="price left">Price: <b><span class="rupee">₹</span> 69,900</b></p>
+                                            <span class="right buy-btn">BUY NOW</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="book-today">
+                                    <a href="@Url.Action("Index","BookToday")" target="_blank">
+                                        <span class="logo-hldr"><img src="~/Content/images/Booktoday.com.png" alt=""></span>
+                                        <span class="img-hldr"><img src="~/Content/images/list-02.jpg" alt=""></span>
+                                        <div class="from-to">
+                                            <span>BANGLORE</span>
+                                            <span><img src="~/Content/images/switch-big.png" alt=""></span>
+                                            <span>MUMBAI</span>
+                                        </div>
+                                        <div class="btm-hldr clearfix">
+                                            <p class="price left">Just for <b><span class="rupee">₹</span> 6,585.00</b></p>
+                                            <span class="right buy-btn book-now">BOOK NOW</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mtl-switch">
+                                    <a href="http://182.71.211.90/Digitalpay/home/index" target="_blank">
+                                        <span class="logo-hldr"><b style="font-size: larger;">OnlinePayment.Com</b></span>
+                                        <span class="img-hldr img-hldr-01"><img src="~/Content/images/list-03.jpg" alt="" style="margin-top:-26px;width:246px; height:200px"></span>
+                                        <span class="logo-hldr">Online payment procesed by MTL Switch</span><h5>Product XXX</h5>
+                                        <div class="btm-hldr clearfix">
+                                            <p class="price left">Price: <b><span class="rupee">₹</span> 100.00</b></p>
+                                            <span class="right buy-btn">BUY NOW</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- END 05-02-2020 -->
+                        </div>
+                    </div>
+                </div>
+                <!-- END 4th Slide -->
+            </div>
+        </article>
+        <div class="ovly"></div>
+    </div>
+</div>
+
+@*<script>
+        var ext = $('#file').val().split('.').pop().toLowerCase();
+        if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+            alert('invalid extension!');
+        }
+    </script>*@
+
+<script>
+    function titleCase(id) {
+        var x = document.getElementById(id);
+        // var defaultVal = x.defaultValue;
+        var currentVal = x.value;
+        var sentence = currentVal.toLowerCase().split(" ");
+        for (var i = 0; i < sentence.length; i++) {
+            sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+        }
+        // document.write(sentence.join(" "));
+        document.getElementById(id).value = sentence.join(" ");
+        // return sentence;
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        jQuery.validator.addMethod("nowhitespace", function (value, element) {
+            return value.indexOf(" ") < 0 && value != "";
+        }, "No space please");
+
+        jQuery.validator.addMethod("lettersonly", function (value, element) {
+            return this.optional(element) || /^[a-z ]+$/i.test(value);
+        }, "Enter only alphabets.");
+    });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#registerform').validate({ // initialize the plugin
+            rules: {
+                firstname: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+                },
+                lastname: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    nowhitespace: true
+
+
+                },
+                mobile: {
+                    required: true,
+                    number: true,
+                    // minlength: 10,
+                    maxlength: 10,
+                    nowhitespace: true,
+                    // phone: true
+                },
+                ddlcardtype: {
+                    required: true
+                },
+                ddlbrand: {
+                    required: true
+                },
+                company: {
+                    required: true
+                },
+                designation: {
+                    required: true
+                },
+                bank: {
+                    required: true
+                },
+                camimage: {
+                    required: true
+                }
+
+            },
+            submitHandler: function (form) { // for demo
+                sendregisterdata(); // for demo
+                return false; // for demo
+            },
+
+            messages: {
+                email: {
+                    email: "Please enter valid Email Id"
+                },
+
+                //id: {
+                //    required: "Enter you MiriID",
+                //    minlength: jQuery.validator.format("Enter at least {0} characters"),
+
+                //},
+
+                company: {
+                    company: "Please enter your company name"
+                },
+                designation: {
+                    designation: "Please enter your designation"
+                },
+
+                mobile: {
+                    minlength: "Please enter valid mobile number",
+                    number: "Only numbers allowed"
+                }
+
+            },
+
+
+        });
+
+    });
+</script>
+
+<script>
+
+ function getdatetime() {
+        var today = new Date();
+        var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
+        var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
+        var dateTime = date + '' + time;
+        return dateTime;
+    }
+
+
+    var requestflag = false;
+    var activationcode;
+    function sendregisterdata() {
+        $('#registerresult').html('');
+        if (requestflag == true) { /*alert('Your registration is being processed.\nPlease wait.');*/ return; }
+         requestflag = true;
+        $('#loaderimg').show();
+        var form = $('#registerform')[0];
+        var data = new FormData(form);
+        $("#btnSubmit").attr("disabled", true);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "@Url.Action("RegisterUser", "MiriCard")",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                var responsecode = data.substring(0, 3);
+                $('#hdncode').val(responsecode);
+                requestflag = false;
+                console.log("SUCCESS : ", data);
+                if (responsecode == "005") {
+                    var r = data.split(':');
+                    $('#activationcode').html(r[2]);
+                    var $parentIndex = 1
+                    var $wrapperWidth = $('.wrapper').outerWidth();
+                    $('.main-hldr').css({
+                        transform: 'translateX(-' + ($wrapperWidth * $parentIndex) + 'px)'
+                    });
+                    $('#container ul.steps li').eq(($parentIndex)+1).addClass('active');
+                    $('#container ul.steps li').eq($parentIndex).addClass('completed');
+
+                    // Off the camera
+                  //  Webcam.reset('#my_camera');
+                    //getdatetime();
+                    $("#qrimage").attr("src", "@Url.Action("QrCode", "MiriCard")/" + getdatetime());
+                    $("#android_app_qr").attr("src", "@Url.Action("AppQRCode", "MiriCard")/miricard_android");
+                    $("#ios_app_qr").attr("src", "@Url.Action("AppQRCode", "MiriCard")/miricard_ios");
+                    $("#pc_app_link").attr("href", "@Url.Action("AppLink", "MiriCard")/MiriCard Desktop");
+                    //alert('Activation code is sent through emails / sms successfully')
+                   // JSalert('Activation code is sent through emails / sms successfully');
+                   // swal("Activation code is sent through emails / sms successfully.");
+                    swal('MiriCard App activation details have been sent to your registered Mobile Number and Email Id');
+                    Email();
+                    SMS();
+
+                    }
+                else if (responsecode == "104") {
+
+                    //   alert("Please add your photo");
+                    $("#btnSubmit").attr("disabled", false);
+                    $("#registerresult").html("Please add your photo");
+
+                }
+                else if (responsecode == "105") {
+                    $("#btnSubmit").attr("disabled", false);
+                    //alert("File size of photo should be less than 2 MB");
+                    $("#registerresult").html("File size of photo should be less than 2 MB");
+                }
+                else if (responsecode == "106") {
+                    $("#btnSubmit").attr("disabled", false);
+                    //alert("User with same email already exists.");
+                    $("#registerresult").html("User already exists.");
+                   // $('#btnskip').show();
+                }
+                else if (responsecode == "107" || responsecode == "108") {
+                    //alert("Registraion Failed.");
+                    $("#btnSubmit").attr("disabled", false);
+                    $("#registerresult").html("Registration Failed.");
+                }
+                else {
+                    $("#btnSubmit").attr("disabled", false);
+                    //$("#registerresult").html('Server Error');
+                    $("#registerresult").html('No Internet Connectivity.');
+                }
+               // $("#btnSubmit").prop("disabled", false);
+                $('#loaderimg').hide();
+
+            },
+            error: function (e) {
+                requestflag = false;
+                $("#btnSubmit").attr("disabled", false);
+                $("#registerresult").html('No Internet Connectivity.');
+                            console.log("ERROR : ", e);
+              //  $("#btnSubmit").prop("disabled", false);
+                $('#loaderimg').hide();
+                        }
+        });
+
+    }
+    function Email() {
+        $.ajax({
+            url:"@Url.Action("PopulateBody", "MiriCard")",
+            type: "Post",
+            contentType: "application/json",
+            success: function (data) {
+                //alert('suc');
+            },
+            error: function (jqXHR, textStatus, err) {
+                consol.log('Excepation');
+            }
+        });
+    }
+
+     function SMS() {
+        $.ajax({
+            url:"@Url.Action("sendsms", "MiriCard")",
+            type: "Post",
+            contentType: "application/json",
+            success: function (data) {
+               // alert('sms');
+            },
+            error: function (jqXHR, textStatus, err) {
+                consol.log('Excepation');
+            }
+        });
+    }
+
+</script>
+
+<script>
+
+
+    function RestQr() {
+        $.ajax({
+            url:"@Url.Action("RestQr", "MiriCard")",
+            type: "Post",
+            data: JSON.stringify(),
+            contentType: "application/json",
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                if (data != "") {
+                    $('#activationcode').html(data.ActivationCode);
+                    $("#qrimage").attr("src", "@Url.Action("QrCode", "MiriCard")/" + getdatetime());
+                }
+                else {
+
+                }
+            },
+            error: function (jqXHR, textStatus, err) {
+                conso.log('Excepation');
+            }
+        });
+    }
+
+</script>
+
+
+
+<script>
+    function AlreadyRegistration() {
+
+        var $parentIndex = 2
+        var $wrapperWidth = $('.wrapper').outerWidth();
+        $('.main-hldr').css({
+            transform: 'translateX(-' + ($wrapperWidth * $parentIndex) + 'px)'
+        });
+        //$('#container ul.steps li').eq($parentIndex).addClass('active');
+        //$('#container ul.steps li').eq(($parentIndex) - 3).addClass('completed');
+        $('#container ul.steps li').eq(($parentIndex) - 1).addClass('completed');
+        $('#container ul.steps li').eq(($parentIndex) + 1).addClass('active');
+        /* 05-02-2020 */
+        if ($('.verPlatformLst').exists()) {
+            $('.verPlatformLst').owlCarousel({
+                /* 15-02-2020 */
+                items: 3,
+                margin: 10,
+                nav: true,
+                navText: ['<span></span>', '<span></span>'],
+                dots: false,
+                /* END 15-02-2020 */
+            });
+        }
+        /* END 05-02-2020 */
+    }
+</script>
+
+<script>
+    function Clear() {
+        window.location.reload();
+
+        //$(".step-one").show();
+        //$('#image_upload_preview').attr('src', '');
+        //$("#registerresult").val('');
+        //$("#firstname").val('');
+        //$("#lastname").val('');
+        //$("#email").val('');
+        //$("#mobile").val('');
+        //$("#cardtype").val('');
+        //$("#company").val('');
+        //$("#designation").val('');
+        //$("#bank").val('');
+        //$("#ddlcardtype").val('');
+        //$("#ddlbrand").val('');
+    }
+</script>
+
+
+<script>
+    function visile() {
+        debugger;
+        $('#ddlbrand-error').css("display", "none")
+    }
+</script>
+
+<script>
+    $('#mobile').keyup(function () {
+        var code = $('#_phoneCode').val();
+        if (code == "+91") {
+            $('#mobile').attr("maxlength", "10");
+            $('#mobile').attr("minlength", "10");
+        }
+        else {
+            $('#mobile').attr("maxlength", "10");
+            $('#mobile').attr("minlength", "7");
+        }
+    })
+
+</script>
+
+<script>
+    function DeRegistration() {
+        try {
+            $.ajax({
+                url: "@Url.Action("De_Reg", "MiriCard")",
+                type: "Post",
+                contentType: "application/json",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    console.log(data);
+                    var StatusCode = data;
+                   // alert(StatusCode);
+                    console.log(StatusCode);
+                    //var StatusMessage = data.StatusMessage;
+                    //console.log(StatusMessage);
+                    //alert(StatusCode);
+                    //alert(StatusMessage);
+                    if (StatusCode == 0) {
+                        //alert('Success')
+                        swal('De-Registration Successfully');
+                    }
+                    else {
+                        swal('De-Registration Fail');
+                    }
+                },
+                error: function (jqXHR, textStatus, err) {
+                    consol.log('Excepation');
+                }
+            });
+        }
+        catch (e) {
+            consol.log(e);
+        }
+    }
+
+</script>
+
+@*<script>
+    $('#btnclose').click(function () {
+        window.location.reload();
+       
+    });
+</script>*@
+@*<script>
+    $('#btnback').click(function () {
+        window.location.reload();
+    });
+</script>*@

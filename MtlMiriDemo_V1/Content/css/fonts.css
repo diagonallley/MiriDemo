@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'rupee_foradianregular';
+    src: url('../fonts/Rupee_Foradian-webfont.eot');
+    src: url('../fonts/Rupee_Foradian-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Rupee_Foradian-webfont.woff2') format('woff2'),
+         url('../fonts/Rupee_Foradian-webfont.woff') format('woff'),
+         url('../fonts/Rupee_Foradian-webfont.ttf') format('truetype'),
+         url('../fonts/Rupee_Foradian-webfont.svg#rupee_foradianregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

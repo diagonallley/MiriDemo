@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2"/>
+    </startup>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="ws_activation_routingSoap">
+          <security mode="Transport" />
+        </binding>
+        <binding name="BasicHttpBinding_IClientAppService" maxReceivedMessageSize="20000000" maxBufferSize="20000000" maxBufferPoolSize="20000000">
+          <security mode="Transport" />
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="https://miridev.gcsapps.com//MIRISYSTEMS/Services/ClientAppServices/ClientAppService.svc" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IClientAppService" contract="ActivationService.IClientAppService" name="BasicHttpBinding_IClientAppService" />
+      <endpoint address="https://mirisystemsapps.com/MIRISYSTEMS/routing/ws_activation_routing.asmx" binding="basicHttpBinding" bindingConfiguration="ws_activation_routingSoap" contract="ActivationRoutingService.ws_activation_routingSoap" name="ws_activation_routingSoap" />
+    </client>
+  </system.serviceModel>
+  <appSettings>
+    <!--<add key="EnvURL" value="DEV/MES"/>-->
+    <!--<add key="EnvURL" value="QT/MES" />-->
+    <add key="EnvURL" value="TestQT/MES"/>
+    <add key="ProductCode" value="01" />
+    <add key="AppVersion" value="Version 1.0" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+  </appSettings>
+  <system.web>
+    <membership defaultProvider="ClientAuthenticationMembershipProvider">
+      <providers>
+        <add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+      <providers>
+        <add name="ClientRoleProvider" type="System.Web.ClientServices.Providers.ClientRoleProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" cacheTimeout="86400" />
+      </providers>
+    </roleManager>
+  </system.web>
+</configuration>

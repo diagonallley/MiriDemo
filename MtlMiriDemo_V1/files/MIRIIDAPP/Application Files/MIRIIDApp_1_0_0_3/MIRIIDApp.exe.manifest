@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MIRIIDApp.exe" version="1.0.0.3" publicKeyToken="58562a0e04588bf7" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Miri-ID.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MIRIIDApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MIRIIDApp.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MIRIIDApp.exe" size="833472">
+      <assemblyIdentity name="MIRIIDApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>AnRoyKrZs9/3YwhNTluQAzyZVsIfsp2Y2LNomGpyjaw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MiriLibrary.dll" size="838144">
+      <assemblyIdentity name="MiriLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>MNU7fQM9kg0La74digyoXXX0Gp2W6j+k7DxvYPDzGF4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="700336">
+      <assemblyIdentity name="Newtonsoft.Json" version="12.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>f5ErKKB8Im4L46z7L1fwUFOKugEA+h8L8sOfGh8dqBQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="lib\MiriLibrary.dll" size="838144">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>MNU7fQM9kg0La74digyoXXX0Gp2W6j+k7DxvYPDzGF4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Miri-ID.ico" size="5042">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>62zqdYFtJed3LYO4wJK19uKzFJf6r5gwFtv6oQtaOwU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="MIRIIDApp.exe.config" size="2338">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zh532wXIhLniWCPgsbhhjXy4Om7UkaGs+aTu16gPSD0=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=HUBERT-PC\Admin" issuerKeyHash="c0716cababbbc4a96dc0b2becfc85f18cd604a2d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>rNViY7rPENwKgPrO+gt3Nj1cS1vOBXBwl6a7KFeWd7U=</DigestValue></Reference></SignedInfo><SignatureValue>Y5CKVb/Z+eg2k/Aslo5cIG6RSsgQpkIjKE0QASuhw7sd5MSGfJRcn7B0fl9MV3sFFjyHbb3+TB/uZ4pxKJHrdGTUuhTGwqDyxFZmNabGBp//HZ8Iv0Xr6KyE+vCdbzWFrcNggLLTM400llFt7O1doZPOxRNRLED4x6nNQWPX8Pg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>tbsJ2I7kfTV2ELVbylLLwthE59W92Lz7gBc8IAhslZaUZf3r6/6U8DVVgvDane8l/wOX8+Tc1o0DLsN23YamleCLAKm2lGYhAQvg2izmvkRYXiyMPMobliLgmNc3sFn9niALP3cKl1dxTzGLn8iSTD92DSseHy2nEwZpMPXKnPU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b577965728bba697707005ce5b4b5c3d36770bfacefa800adc10cfba6362d5ac" Description="" Url=""><as:assemblyIdentity name="MIRIIDApp.exe" version="1.0.0.3" publicKeyToken="58562a0e04588bf7" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=HUBERT-PC\Admin</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ERygtT4gueQ+ZqC1UbfhKeM5cnVSayzEBZtPD4kNNkU=</DigestValue></Reference></SignedInfo><SignatureValue>coXOAsiIBarigVAhTRgIhPrhucLChYgaPiW+psK6ZHEo8TwDa6ZfOaD0fT+XuDrHmTH/DK8zuWjTSAkGhGt9jcd5qUhoib+8MFGL9y/Y2o8oVzHBY8/DR2LEG19MkrB342bjmbi3OmZQr0wOFXDqTXHbL0du5vRtDo6Tc65nUTM=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tbsJ2I7kfTV2ELVbylLLwthE59W92Lz7gBc8IAhslZaUZf3r6/6U8DVVgvDane8l/wOX8+Tc1o0DLsN23YamleCLAKm2lGYhAQvg2izmvkRYXiyMPMobliLgmNc3sFn9niALP3cKl1dxTzGLn8iSTD92DSseHy2nEwZpMPXKnPU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQREZJ+BKWbJFK78Ee9Skh1DANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDHh4ASABVAEIARQBSAFQALQBQAEMAXABBAGQAbQBpAG4wHhcNMTkxMTI5MTEzODA0WhcNMjAxMTI4MTczODA0WjApMScwJQYDVQQDHh4ASABVAEIARQBSAFQALQBQAEMAXABBAGQAbQBpAG4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALW7CdiO5H01dhC1W8pSy8LYROfVvdi8+4AXPCAIbJWWlGX96+v+lPA1VYLw2p3vJf8Dl/Pk3NaNAy7Ddt2GppXgiwCptpRmIQEL4Nos5r5EWF4sjDzKG5Yi4JjXN7BZ/Z4gCz93CpdXcU8xi5/Ikkw/dg0rHh8tpxMGaTD1ypz1AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAk7Ydimb5ydIsgjRKmtSxMrxR+Yyka3plKkO52bSiROI2b/7rzbeg+/6JG3sc7cavWCvph4esOhN9Wh7tkWodC69PW8Yx8Od0bKgWAvsg1J1wkNZmMUWcXKQDb2DNjZTvBaWw4NrHrP7Vp429Q1diBe7EEBJQpwbNyWUZz07VLYI=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

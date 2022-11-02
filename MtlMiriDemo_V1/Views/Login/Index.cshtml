@@ -1,0 +1,345 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>Miri Experience Suite</title>
+    <link rel="shortcut icon" href="~/Content/images/images/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/styles.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/media.css" media="all" />
+    <script src="~/Content/js/jquery.min.v1.11.2.js"></script>
+    <script src="~/Content/js/instascan.min.js"></script>
+    <script src="~/Content/js/jquery.validate.js"></script>
+    <script src="~/Content/js/script.js"></script>
+    <script src="~/Content/js/webcam.min.js"></script>
+    
+
+
+</head>
+<body>
+
+    <script>
+        let scanner;
+        var requestflag = false;
+        function startcam(elem) {
+
+            scanner = new Instascan.Scanner({ video: document.getElementById(elem) });
+            scanner.addListener('scan', function (content) {
+                // alert(content);
+                //  window.location.href = "3.html";
+                console.log(content);
+                var data = content;
+                // alert(content);
+                if (content.length > 19) {
+                    data = content.substring(content.length - 19, content.length);
+                }
+                data = data.replace(' ', '');
+                $('#miriid').val(data);
+                $('.inputClr').show();
+                $('.qrBtnCls').click();
+                scanner.stop();
+                $('#loginform').submit()
+            });
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                    scanner.start(cameras[0]);
+                } else {
+                    console.error('No cameras found.');
+                    alert('No cameras found.');
+
+                }
+            }).catch(function (e) {
+                console.error(e);
+                alert('No cameras found.');
+            });
+        }
+    </script>
+
+    <div id="main">
+        <div class="wrapper">
+
+            <div class="login-hldr">
+                <div class="login-left">
+                    <div class="circle-one"></div>
+                    <div class="circle-two"></div>
+                    <div class="circle-three"></div>
+                    <div class="circle-four"></div>
+                </div>
+                <div class="login-right">
+                    <div class="logo-hldr">
+                        <div class="logo-left">
+                            <img src="@Url.Content("~/Content/images/logo.png")" alt="">
+                        </div>
+                        <div class="logo-right">
+                            <hr>
+                            <h1>Miri Experience Suite</h1>
+                            <p>VERSION 1.3</p>
+                        </div>
+                    </div>
+                    <div class="form-hldr">
+                        <form action="" id="loginform" name="loginform">
+                            <fieldset>
+                                <div class="input-hldr">
+                                    <!-- Add 'error' class to make line red -->
+                                    <input type="text" id="miriid" maxlength="19" name="id" class="primary-input" placeholder="Enter Miri ID or scan QR Code" autocomplete="off" autofocus="autofocus" onkeyup="ClearError()">
+                                    @*<p class="error-txt" >Invalid MiriID, Please enter valid MIRIID</p>*@
+                                    <a class="input-clear inputClr"><img id="imgcros" src="@Url.Content("~/Content/images/white-cls.png")" alt=""></a>
+                                    <a class="qr-btn qrBtn" onclick="startcam('campreview')">
+                                        <span class="img-hldr"><img src="@Url.Content("~/Content/images/qr-code-small.png")" alt=""></span>
+                                    </a>
+                                    <div style="height:1em">
+                                        <p class="error-txt" style="display:block;height:1em"></p>
+
+                                        <label for="miriid" id="result" generated="true" class="error error-txt" style=" height:1em;font-size:larger;"></label>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="btm-hldr clearfix">
+                                    <div class="for-pass-hldr left">
+                                        <a href="#" class="for-pass">Forgot Password?</a>
+                                        <div class="for-pass-info-hldr">
+                                            <p class="arrow"></p>
+                                            <div class="for-pass-info">
+                                                @*<p>True, forgot password is not there because you <b>don’t have to remember it. One time dynamic password</b> created instantly.</p>*@
+                                                <p>True ! You never need this option as you are using a <b>Miri ID</b> to login.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" id="btnsubmit" onclick="" class="right primary-btn loginBtn">
+                                        <img src="~/Content/images/white-right.png" alt="" id="img">
+                                        <div class="loader" id="loadercss">
+                                            <svg class="circular" viewBox="25 25 50 50">
+                                                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
+                                            </svg>
+                                        </div>
+                                    </button>
+
+                                </div>
+                                <div class="qr-hldr" onclick="startcam('campreview')">
+                                </div>
+
+                                <div class="qr-cnt">
+                                    <div class="qr-cam-hldr">
+                                        <a class="qr-close-btn qrBtnCls"><img src="@Url.Content("~/Content/images/qr-close.png")" alt=""></a>
+                                        <div class="qr-cam">
+                                            <div id="my_camera" class="video-cam"><video id="campreview" class="preview-container"></video></div>
+                                            <h6 class="cameraVideoMsg">Webcam not detected !!!</h6>
+                                        </div>
+                                    </div>
+                                    <p>Show the QR code from your mobile</p>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--main-->
+
+    <script>
+        function ClearError() {
+            $('.inputClr').show();
+            var textname = $('#miriid').val();
+            if (textname == "") {
+                $("#result").html("");
+
+            }
+        }
+
+        $(document).ready(function () {
+            $('#loader').hide();
+            $('#loginform').validate({ // initialize the plugin
+                rules: {
+                    id: {
+                        required: true,
+                        minlength: 16,
+                        //  nowhitespace: true
+                    }
+
+                },
+                submitHandler: function (form) { // for demo
+                    senddata(); // for demo
+                    return false; // for demo
+                },
+
+
+
+                sages: {
+                    id: {
+                        required: "Please enter MiriID",
+                        minlength: "Please enter valid MiriID"
+                        // minlength: jQuery.validator.format("Enter {0} characters"),
+
+                    }
+                }
+            });
+
+        });
+    </script>
+
+
+    <script>
+        $('#miriid').keyup(function () {
+
+        $(this).val($(this).val().toUpperCase());
+        });
+
+        function senddata() {
+
+       $('#loadercss').show();
+        console.log('senddata');
+         var form = $('#loginform')[0];
+            $("#btnSubmit").attr("disabled", true);
+        var data = new FormData(form);
+            $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+           url: "@Url.Action("ValidateAdminMiriID", "Login")",
+                //url: "http://localhost:60970/Login/ValidateAdminMiriID",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+                success: function (data) {
+                    //alert(data);
+                    console.log('SUCCESS'),
+                requestflag = false;
+              //  $("#result").html(data);
+                console.log("SUCCESS : ", data);
+                var responsecode = data.substring(0, 3);
+               // $("#btnSubmit").prop("disabled", false);
+                if (responsecode == "000") {
+                    console.log('Redirect to product page'),
+                    window.location.href = '@Url.Action("Index","Product")';
+                    $('.circular').hide();
+                    //$("#img").show();
+                }
+                else if (responsecode == "001" || responsecode == "002")
+                {
+                    console.log('Invalid MiriID'),
+                    $("#result").html("Invalid ID");
+                    $('.circular').hide();
+                   $("#loadercss").css('display', 'none');
+                    $("#btnsubmit").css({ 'opacity': '1' });
+                    $("#img").css({ 'opacity': '1' });
+                   // $("#img").show();
+
+                }
+                else if (responsecode == "003") {
+                    console.log('Database Connection Issue'),
+                        $("#result").html("Database Connection Issue");
+                    $('.circular').hide();
+                    $("#loadercss").css('display', 'none');
+                    $("#btnsubmit").css({ 'opacity': '1' });
+                    $("#img").css({ 'opacity': '1' });
+                    // $("#img").show();
+
+                }
+
+                else if (responsecode == "004" || responsecode == "004")
+                {
+                    console.log('Account Locked. Please Contact Admin'),
+                    $("#result").html("Account Locked. Please Contact Admin");
+                    $('.circular').hide();
+                    $("#loadercss").css('display', 'none');
+                    $("#btnsubmit").css({ 'opacity': '1' });
+                    $("#img").css({ 'opacity': '1' });
+                }
+                else {// $("#result").html(data);
+                }
+
+                $("#result").show();
+
+            },
+            error: function (e) {
+                requestflag = false;
+                console.log('Error and excepation'),
+                $("#loadercss").css('display', 'none');
+                $("#btnsubmit").css({ 'opacity': '1' });
+                $("#img").css({ 'opacity': '1' });
+                $("#result").html("Server Error.");
+                console.log("ERROR : ", e);
+                $('.loader').hide();
+            }
+        });
+
+    }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#miriid').keyup(function (event) {
+                addHyphen(this);
+                //  $("#result").html(" ");
+            });
+        });
+
+        function addHyphen(element) {
+            let val = $(element).val().split('-').join('');   // Remove dash (-) if mistakenly entered.
+            val = val.replace(/ /g, ''); //remove space
+            let finalVal = val.match(/.{1,4}/g).join('-');    // Add (-) after 3rd every char.
+            $(element).val(finalVal);		// Update the input box.
+        }
+    </script>
+
+    <script type='text/javascript'>
+        $('#miriid').keypress(function (e) {
+            var miriId = document.getElementById('miriid').value;
+            var str = miriId.length;
+            if (str <= 7) {
+                var keyCode = event.which || event.keyCode;
+                /*
+             48-57 - (0-9)Numbers
+             65-90 - (A-Z)
+             97-122 - (a-z)
+             8 - (backspace)
+             32 - (space)
+             */
+                // Not allow special
+                if (!((keyCode >= 48 && keyCode <= 57)
+                    || (keyCode >= 65 && keyCode <= 90)
+                    || (keyCode >= 97 && keyCode <= 122))
+                    && keyCode != 8) {
+                    e.preventDefault();
+                }
+            }
+            if (str >= 8) {
+                var keyCode = event.which || event.keyCode;
+                /*
+           8 - (backspace)
+           32 - (space)
+           48-57 - (0-9)Numbers
+         */
+                if ((keyCode != 8 || keyCode == 32) && (keyCode < 48 || keyCode > 57)) {
+                    e.preventDefault();
+                }
+            }
+        });
+    </script>
+
+    <script>
+        $('.input-clear').click(function () {
+            $('#miriid').val('');
+        })
+    </script>
+
+    <style>
+        .login-hldr .login-right .input-hldr .error-txt {
+            margin-top: 10px;
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</body>
+</html>

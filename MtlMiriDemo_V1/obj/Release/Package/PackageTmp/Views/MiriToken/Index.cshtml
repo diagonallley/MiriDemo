@@ -1,0 +1,1005 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutMiriToken.cshtml";
+}
+<style>
+    #main {
+        position: absolute;
+    }
+</style>
+<div id="main">
+    <div class="wrapper main-wrapper">
+        <header id="header">
+            <div class="logo-hldr">
+                <div class="logo-left">
+                    <a href="#"><img src="@Url.Content("~/Content/images/logo.png")" alt=""></a>
+                </div>
+                <div class="logo-right">
+                    <hr>
+                    <h1>Miri Experience Suite</h1>
+                    <p>VERSION 1.3</p>
+                </div>
+            </div>
+            <div>
+                <a class="log-out-btn logoutBtn"><img src="@Url.Content("~/Content/images/log-out.png")" alt=""></a>
+                <div class="log-out-sec">
+                    <div class="log-out-wrap">
+                        <h6>Are you sure you want to Log out ?</h6>
+                        <div class="log-btns">
+                            <a href="@Url.Action("SignOut","Login")" class="right">Yes</a>
+                            <a class="no-btn noBtn right">No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <article id="container">
+            <ul class="steps">
+                <li class="active completed">
+                    <h6>1</h6>
+                    <p>Choose Product</p>
+                </li>
+                <li class="active">
+                    <h6>2</h6>
+                    <p>Register</p>
+                </li>
+                <li>
+                    <h6>3</h6>
+                    <p>Download</p>
+                </li>
+                <li>
+                    <h6>4</h6>
+                    <p>TRY <span id="tryTab">MIRI</span></p>
+                </li>
+            </ul>
+            <div class="main-hldr">
+
+                <!-- 2nd Slide -->
+                <div class="main-content">
+                    <div class="center-hldr single-center">
+                        <div class="center-cnt">
+                            <div class="reg-heading">
+                                <div>
+                                    <a href="@Url.Action("Index","Product")" class="back-btn"><img src="@Url.Content("~/Content/images/back-arrow.png")" alt=""> Back |</a>
+                                    <img src="@Url.Content("~/Content/images/product-02.png")" class="miri-img" alt="">
+                                </div>
+                                <p class="please-enter">Please enter your details</p>
+                            </div>
+                            <form id="registerform">
+                                <div class="form-hldr">
+                                    <div class="pro-upld-cnt">
+                                        <div class="pro-upld">
+                                            <div class="step-one stepOne">
+                                                <img src="@Url.Content("~/Content/images/thumb-uder-gray.png")" alt="" class="img-thumb">
+                                                <p class="open-webcam">Add <br> Profile Image</p>
+                                            </div>
+                                            <div class="step-two-hldr stepTwo" id="stepid" style="position:absolute">
+                                                <div class="step-two">
+                                                    <div class="ech-step webCamStep">
+                                                        <img src="@Url.Content("~/Content/images/web-lrg.png")" alt="">
+                                                        <p>Take Photo</p>
+                                                    </div>
+                                                    <div class="ech-step">
+                                                        <input type="file" name="file" id="file" class="file-upload picUpload" accept=".png, .jpg, .jpeg">
+                                                        <img src="@Url.Content("~/Content/images/file.png")" alt="">
+                                                        <p>Upload</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="image_upload_preview_hldr">
+                                                <div class="image_upload_preview_cnt">
+                                                    <img src="#" alt="" id="image_upload_preview" name="image_upload_preview" style="width:100%;height:100%;">
+                                                    <input type="hidden" name="camimage" id="camimage" />
+                                                </div>
+                                            </div>
+                                            @*<div class="web-cam-pic">
+                                <div class="web-cam-pic-cnt">
+                                    <div id="proCameraVideo" class="video-cam"></div>
+                                    <h6 class="proCameraVideoMsg">Webcam not detected !!!</h6>
+                                </div>
+                            </div>*@
+                                            <!-- 12-03-2020 -->
+                                            <div class="web-cam-pic">
+                                                <div class="web-cam-pic-cnt">
+                                                    <div class="loader web-cam-loader">
+                                                        <svg class="circular" viewBox="25 25 50 50">
+                                                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
+                                                        </svg>
+                                                    </div>
+                                                    <!-- <div id="proCameraVideo" class="video-cam"></div> -->
+                                                    <h6 class="proCameraVideoMsg">Webcam not detected !!!</h6>
+                                                </div>
+                                            </div>
+                                            <!-- END 12-03-2020 -->
+                                        </div>
+                                        <!-- 12-03-2020 -->
+                                        <!-- <div class="btm-btns capture-photo-hldr">
+                    <a class="capturePhoto">Capture Photo</a>
+                                   </div> -->
+                                        <div class="btm-btns back-to-photo-hldr">
+                                            <a class="backToPhoto">Back</a>
+                                        </div>
+                                        <!-- END 12-03-2020 -->
+
+                                        <div class="btm-btns change-photo">
+                                            <a class="changePhoto">Change Photo</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-right">
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" name="firstname" id="firstname" autocomplete="off" onchange="titleCase('firstname')">
+                                                <span class="label">First Name <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+
+                                            <label for="firstname" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" name="lastname" id="lastname" autocomplete="off" onchange="titleCase('lastname')">
+                                                <span class="label">Last Name <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+
+                                            <label for="lastname" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="email" placeholder="&nbsp;" name="email" id="email" autocomplete="off">
+                                                <span class="label">Email Id <sup>*</sup></span>
+                                                <span class="border"></span>
+                                            </div>
+
+                                            <label for="email" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="mobile-input-hldr">
+                                                <div class="mobile-country">
+                                                    <div class="country-code">
+                                                        <input type="text" class="flagSelect phone-field">
+                                                    </div>
+                                                </div>
+                                                <div class="form-input">
+                                                    <input type="text" name="mobile" id="mobile" autocomplete="off" placeholder="&nbsp;">
+                                                    <span class="label">Mobile No. <sup>*</sup></span>
+                                                    <span class="border"></span>
+                                                </div>
+                                            </div>
+                                            <label for="mobile" generated="true" class="error error-txt"></label>
+                                            @*<p class="error-txt">Please Enter Mobile No.</p>*@
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" maxlength="80" name="company" id="company" autocomplete="off" onchange="titleCase('company')">
+                                                <span class="label">Organization</span>
+                                                <span class="border"></span>
+                                            </div>
+                                            <label for="company" generated="true" class="error error-txt"></label>
+                                        </div>
+                                        <div class="form-ech">
+                                            <div class="form-input">
+                                                <input type="text" placeholder="&nbsp;" name="designation" maxlength="80" id="designation" autocomplete="off" onchange="titleCase('designation')">
+                                                <span class="label">Designation</span>
+                                                <span class="border"></span>
+                                            </div>
+                                            <label for="designation" generated="true" class="error error-txt"></label>
+                                        </div>
+                                    </div>
+                                    <div class="all-fields">
+                                        <p class="all-txt"><b>Registration not successful</b> Please enter all the fields</p>
+                                    </div>
+
+                                </div>
+                                <div style="color:red;text-align:center" id="registerresult"></div>
+                                <br />
+                                <br />
+                                <div class=" btm-sec clearfix">
+                                    <div class="btm-sec-cnt right">
+                                        <p class="already-reg left">Already registered? <a href="#" onclick="AlreadyRegistration()">Click Here</a></p>
+                                        <button type="submit" id="btnSubmit" class="right primary-btn"><img src="~/Content/images/white-right.png" alt=""></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="otp-popup">
+                            <h6>We have sent an OTP to your registered mobile number.</h6>
+                            <button type="button" class="primary-btn nextBtn">SUBMIT</button>
+                            <p class="already-reg">Haven’t received yet? <a href="#">Regenerate</a></p>
+                        </div>
+                        <!-- Camera Box -->
+                        <div class="crop-popup camPopup">
+                            <div class="crop-popup-body">
+                                <div id="proCameraVideo" class="video-cam"></div>
+                            </div>
+                            <div class="cap-btn-hldr clearfix" style="margin-left:10px;">
+                                @*<a class="primary-btn cap-btn right capturePhoto cropBtn">Capture Photo</a>*@
+                                @*<button type="button" id="btnclose" class="primary-btn right" style="margin-top:-10px;margin-left:10px">Close</button>
+        <button type="button" class="primary-btn right capturePhoto" style="margin-top:-10px">Capture Photo</button>*@
+                                <button type="button" id="btnclose"  class="primary-btn right closeCam" style="background:#671d28;">Close</button>
+                                <button type="button" class="primary-btn right capturePhoto">Capture Photo</button>
+                            </div>
+                        </div>
+                        <div class="crop-popup-ovly"></div>
+                        <!-- END Camera Box -->
+                        <!-- Crop Box -->
+                        <div class="crop-popup cropPopup">
+                            <div class="crop-popup-body">
+                                <img src="#" alt="" id="crop-img">
+                            </div>
+                            <div class="cap-btn-hldr clearfix">
+                                @*<button type="button" class="primary-btn right cropBtn">Crop</button>*@
+                                <button type="button" id="btnback" class="primary-btn right closeCam1" style="margin-left:10px;background:#671d28;">Close</button>
+                                <button type="button" class="primary-btn right cropBtn">OK</button>
+                            </div>
+                        </div>
+                        <div class="crop-popup-ovly"></div>
+                        <!-- END Crop Box -->
+                    </div>
+                </div>
+                <!-- END 2nd Slide -->
+                <!-- 3rd Slide -->
+                <div class="main-content">
+                    <div class="center-hldr single-center cong-hldr">
+                        <div class="center-cnt">
+                            <h5 class="success-msg"><span>Congratulations!</span> You have Successfully registered for Miri Token Demo</h5>
+                            <h6 class="complete-text">Please complete the below steps</h6>
+                            <ul class="steps-list">
+                                <li>
+                                    <div class="num-hldr"><p>1</p></div>
+                                    <div class="cnt-hldr clearfix">
+                                        <div class="left miri-cnt">
+                                            <p class="title topTitle">Please download Miri Token App by clicking below icons</p>
+                                            <ul class="links-lst">
+                                                <li>
+                                                    <button type="button" class="qr-btn downQrBtn"><img src="~/Content/images/android.png" alt=""> Android</button>
+                                                    <div class="qr-drop">
+                                                        <!-- 02-03-2020 -->
+                                                        <div class="qr-cls-btn-hldr clearfix">
+                                                            <a class="qr-cls-btn  qrClose"><img src="~/Content/images/qr-close.png" alt="" style="height:13px"></a>
+                                                        </div>
+                                                        <!-- 02-03-2020 -->
+                                                        <img src="~/Content/images/arrow.png" class="arrow" alt="">
+                                                        <img id="android_app_qr" src="~/Content/images/inner-qr-code.png" alt="">
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <button type="button" class="qr-btn downQrBtn"><img src="~/Content/images/ios.png" alt=""> iOS</button>
+                                                    <div class="qr-drop">
+                                                        <!-- 02-03-2020 -->
+                                                        <div class="qr-cls-btn-hldr clearfix">
+                                                            <a class="qr-cls-btn  qrClose"><img src="~/Content/images/qr-close.png" alt="" style="height:13px"></a>
+                                                        </div>
+                                                        <!-- 02-03-2020 -->
+                                                        <img src="~/Content/images/arrow.png" class="arrow" alt="">
+                                                        <img id="ios_app_qr" src="~/Content/images/inner-qr-code.png" alt="">
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div id="imgpc" class="qr-btn"><a id="pc_app_link" href=""><img src="@Url.Content("~/Content/images/pc.png")" alt="">Desktop</a></div>
+                                                    @*<button type="button" class="qr-btn downQrBtn"><img src="~/Content/images/pc.png" alt=""> Desktop</button>
+                                                                 <div class="qr-drop">
+                                                                 <img src="~/Content/images/arrow.png" class="arrow" alt="">
+                                                             <img src="~/Content/images/inner-qr-code.png" alt="">
+                                                        </div>*@
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="right miri-placholder"><img src="~/Content/images/miri-token.png" alt=""></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="num-hldr"><p>2</p></div>
+                                    <div class="cnt-hldr">
+                                        <p class="title">Activate your App using below Activation code or QR code</p>
+                                        <div class="code-txt">
+                                            <div class="code-img"><img id="qrimage" src="~/Content/images/qr-code.png" alt=""></div>
+                                            <p id="activationcode">4256 8745 1452 2356</p>
+                                        </div>
+                                        <!-- 07-01-2020 -->
+                                        <button type="button" class="reset-btn">
+                                            <a href="#" onclick="RestQr()"><img src="~/Content/images/re-try.png" alt="">RESET</a>
+                                        </button>
+                                        <!-- END 07-01-2020 -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="num-hldr"><p>3</p></div>
+                                    <div class="cnt-hldr">
+                                        <p class="title"><span class="activate">Use the App </span> and generate your <span class="miri-id" id="product_name">Miri Token</span></p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="main-overlay"></div>
+                        </div>
+                        <hr class="divider">
+                        <div class="clearfix">
+                            <button type="button" class="right primary-btn nextBtn"><span>TRY YOUR MIRI Token</span> <img src="~/Content/images/white-right.png" alt=""></button>
+                            
+                            @*<button type="button" style="margin-right:18px" class="right primary-btn" onclick="DeRegistration()"><span>De-Registration</span> <img src="~/Content/images/white-right.png" alt=""></button>*@
+                        </div>
+                    </div>
+                </div>
+                <!-- END 3rd Slide -->
+                <!-- 4th Slide -->
+                <div class="main-content">
+                    <div class="about-sec">
+                        <div class="try-left">
+                            <div class="try-form enter-token">
+                                <div class="enter-cnt">
+                                    <form action="" id="loginform2">
+                                        <fieldset>
+                                            <div class="ech-input">
+                                                <div class="input-hldr">
+                                                    <input type="text" name="userid" id="userid" autocomplete="off" placeholder="Enter Email Id">
+                                                </div>
+                                                <label for="userid" generated="true" class="error error-txt"></label>
+                                            </div>
+                                            <div class="ech-input">
+                                                <div class="input-hldr">
+                                                    <input type="text" id="subInput2" name="token" class="cardID" autocomplete="off" maxlength="11" placeholder="Enter Miri Token or scan QR code">
+                                                    <div class="qr-info">
+                                                        <a class="qr-btn qrBtn" onclick="startcam('campreview')">
+                                                            <img src="~/Content/images/qr-code-small.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <label for="token" generated="true" class="error error-txt"></label>
+                                            </div>
+                                            <div style="height:1.6em;display:block;">
+                                                <label id="lblsubInput2" for="subInput2" style="color:red;height:1em;font-size:14px" generated="true" class="error error-txt"></label>
+                                            </div>
+
+                                            <button type="submit" id="btnSubmitmiritoken" class="primary-btn"><img src="@Url.Content("~/Content/images/white-right.png")" alt=""></button>
+
+                                        </fieldset>
+                                        @*<input type="button" id="btnback1" onclick="location.href='@Url.Action("Index","Product")';" value="Back" style="margin-left:700PX;background-color:#146F84;" />*@
+                                        <a href="@Url.Action("Index","Product")" class="try-btn left" style="margin-left:600PX;width:188px;position:absolute;margin-top:92px;"><img src="~/Content/images/blue-left.png" alt=""> TRY OTHER MIRI PRODUCT</a>
+                                    </form>
+                                   
+                                </div>
+                                <div class="qr-cnt">
+                                    <div class="qr-cam-hldr">
+                                        <a class="qr-close-btn qrBtnCls"><img src="@Url.Content("~/Content/images/qr-close.png")" alt=""></a>
+                                        <div class="qr-cam">
+                                            <div id="my_camera" class="video-cam"><video id="campreview" class="preview-container"> </video></div>
+                                            <h6 class="cameraVideoMsg">Webcam not detected !!!</h6>
+                                        </div>
+                                    </div>
+                                    <p>Show the QR code from your mobile</p>
+                                </div>
+                            </div>
+                            <div class="success-section">
+                                <div class="img-hldr"><img src="~/Content/images/success-img.png" alt=""></div>
+                                <h6>Login successful</h6>
+                            </div>
+                            <div class="not-valid-section">
+                                <img src="@Url.Content("~/Content/images/not-valid.png")" alt="">
+                                <h6 id="error_message"></h6>
+                                <a class="retry-btn notValidRetry">RETRY <img src="@Url.Content("~/Content/images/re-try.png")" alt=""></a>
+                            </div>
+                            <div class="try-cnt">
+                                <div class="pro-img-hldr">
+                                    @*<img src="~/Content/images/user-thumb-pro.png" alt="">*@
+                                    <img class="pro-img-hldr" id="userimage" src="@Url.Content("~/Content/images/user-thumb-pro.png")" alt="">
+                                </div>
+                                <h6 id="user_name">Parinita Karve</h6>
+                                <p id="user_designation">Business Analyst <br> Manipal Technologies Limited</p>
+                                <div class="mail-phone full-mail-phone">
+                                    <a class="mail">
+                                        <img src="@Url.Content("~/Content/images/mail.png")" alt=""><text id="user_email">parinita.karve@manipalgroup.info</text>
+                                    </a>
+                                    <a class="phone">
+                                        <img src="@Url.Content("~/Content/images/phone.png")" alt=""><text id="user_phone">+91 87246 98594</text>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="retry-btn retryBtn">RETRY <img src="@Url.Content("~/Content/images/re-try.png")" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="abt-right-cnt">
+                            <div class="tab-btns clearfix">
+                                <a class="tabBtn active">Use Cases</a>
+                            </div>
+                            <div class="abt-right-hldr">
+                                <div id="use" class="active">
+                                    <ul class="case-lst">
+                                        <li>
+                                            <div class="img-hldr"><img src="@Url.Content("~/Content/images/case-08.png")" alt=""></div>
+                                            <p>Offline OTP</p>
+                                        </li>
+                                        <li>
+                                            <div class="img-hldr"><img src="@Url.Content("~/Content/images/case-04.png")" alt=""></div>
+                                            <p>One time Dynamic password</p>
+                                        </li>
+                                        <li>
+                                            <div class="img-hldr"><img src="@Url.Content("~/Content/images/case-07.png")" alt=""></div>
+                                            <p>2FA for accessing Critical systems</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <a href="@Url.Action("Index","Product")" class="try-btn left"><img src="@Url.Content("~/Content/images/blue-left.png")" alt=""> TRY OTHER MIRI PRODUCT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END 4th Slide -->
+            </div>
+        </article>
+        <div class="ovly"></div>
+    </div>
+</div>
+<script>
+    function titleCase(id) {
+        var x = document.getElementById(id);
+        // var defaultVal = x.defaultValue;
+        var currentVal = x.value;
+        var sentence = currentVal.toLowerCase().split(" ");
+        for (var i = 0; i < sentence.length; i++) {
+            sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+        }
+        // document.write(sentence.join(" "));
+        document.getElementById(id).value = sentence.join(" ");
+        // return sentence;
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#subInput2').keyup(function (event) {
+            addHyphen2(this);
+        });
+
+
+        
+    });
+
+    function addHyphen2(element) {
+        let val = $(element).val().split('-').join('');   // Remove dash (-) if mistakenly entered.
+
+        let finalVal = val.match(/.{1,3}/g).join('-');    // Add (-) after 3rd every char.
+        $(element).val(finalVal);		// Update the input box.
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        jQuery.validator.addMethod("nowhitespace", function (value, element) {
+            return value.indexOf(" ") < 0 && value != "";
+        }, "No space please");
+
+        jQuery.validator.addMethod("lettersonly", function (value, element) {
+            return this.optional(element) || /^[a-z ]+$/i.test(value);
+        }, "Enter only alphabets.");
+    });
+</script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#registerform').validate({ // initialize the plugin
+            rules: {
+                firstname: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+                },
+                lastname: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    nowhitespace: true
+
+
+                },
+                mobile: {
+                    required: true,
+                    number: true,
+                    //minlength: 10,
+                    maxlength: 10,
+                    nowhitespace: true,
+                    // phone: true
+                },
+                company: {
+                    required: true
+                },
+                designation: {
+                    required: true
+                },
+                camimage: {
+                    required: true
+                }
+
+            },
+            submitHandler: function (form) { // for demo
+                sendregisterdata(); // for demo
+                return false; // for demo
+            },
+
+            messages: {
+                email: {
+                    email: "Please enter valid Email Id"
+                },
+                company: {
+                    company: "Please enter your company name"
+                },
+                designation: {
+                    designation: "Please enter your designation"
+                },
+
+                mobile: {
+                    minlength: "Please enter valid mobile number",
+                    number: "Only numbers allowed"
+                }
+            },
+        });
+
+    });
+</script>
+
+<script>
+
+ function getdatetime() {
+        var today = new Date();
+        var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
+        var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
+        var dateTime = date + '' + time;
+        return dateTime;
+    }
+
+
+    var requestflag = false;
+    var activationcode;
+    function sendregisterdata() {
+        $('#registerresult').html('');
+        if (requestflag == true) { /*alert('Your registration is being processed.\nPlease wait.');*/ return; }
+         requestflag = true;
+        $('#loaderimg').show();
+        var form = $('#registerform')[0];
+        var data = new FormData(form);
+        $("#btnSubmit").attr("disabled", true);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "@Url.Action("RegisterUser", "MiriToken")",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                var responsecode = data.substring(0, 3);
+                $('#hdncode').val(responsecode);
+                requestflag = false;
+                console.log("SUCCESS : ", data);
+                if (responsecode == "005") {
+                    var r = data.split(':');
+                    $('#activationcode').html(r[2]);
+                    var $parentIndex = 1;
+                    var $wrapperWidth = $('.wrapper').outerWidth();
+                    $('.main-hldr').css({
+                        transform: 'translateX(-' + ($wrapperWidth * $parentIndex) + 'px)'
+                    });
+                    $('#container ul.steps li').eq(($parentIndex)+1).addClass('active');
+                    $('#container ul.steps li').eq($parentIndex).addClass('completed');
+
+                    // Off the camera
+                  //  Webcam.reset('#my_camera');
+                    //getdatetime();
+                    $("#qrimage").attr("src", "@Url.Action("QrCode", "MiriToken")/" + getdatetime());
+                    $("#android_app_qr").attr("src", "@Url.Action("AppQRCode", "MiriToken")/miritoken_android");
+                    $("#ios_app_qr").attr("src", "@Url.Action("AppQRCode", "MiriToken")/miritoken_ios");
+                   // $("#pc_app_link").attr("href", "@Url.Action("AppQRCode", "MiriToken")/miritoken_pc");
+                    $("#pc_app_link").attr("href", "@Url.Action("AppLink", "MiriToken")/MiriToken Desktop");
+                    //alert('Activation code is sent through emails / sms successfully')
+                    //JSalert(swal("Activation code is sent through emails / sms successfully."));
+                    swal('MiriToken App activation details have been sent to your registered Mobile Number and Email Id');
+                    Email();
+                    SMS();
+                            }
+                else if (responsecode == "104") {
+
+                    //   alert("Please add your photo");
+                    $("#btnSubmit").attr("disabled", false);
+                    $("#registerresult").html("Please add your photo");
+
+                }
+                else if (responsecode == "105") {
+                    $("#btnSubmit").attr("disabled", false);
+                    //alert("File size of photo should be less than 2 MB");
+                    $("#registerresult").html("File size of photo should be less than 2 MB");
+                }
+                else if (responsecode == "106") {
+                    $("#btnSubmit").attr("disabled", false);
+                    //alert("User with same email already exists.");
+                    $("#registerresult").html("User already exists.");
+                   // $('#btnskip').show();
+                }
+                else if (responsecode == "107" || responsecode == "108") {
+                    $("#btnSubmit").attr("disabled", false);
+                    //alert("Registraion Failed.");
+                    $("#registerresult").html("Registration Failed.");
+                }
+
+
+                else {
+                    $("#btnSubmit").attr("disabled", false);
+                    //$("#registerresult").html('Server Error');
+                    $("#registerresult").html('No Internet Connectivity.');
+                }
+               // $("#btnSubmit").prop("disabled", false);
+                $('#loaderimg').hide();
+
+
+            },
+            error: function (e) {
+                requestflag = false;
+                $("#btnSubmit").attr("disabled", false);
+                $("#registerresult").html('No Internet Connectivity.');
+                            console.log("ERROR : ", e);
+              //  $("#btnSubmit").prop("disabled", false);
+                $('#loaderimg').hide();
+                        }
+        });
+
+    }
+
+    function Email() {
+        $.ajax({
+            url:"@Url.Action("PopulateBody", "MiriToken")",
+            type: "Post",
+            contentType: "application/json",
+            success: function (data) {
+                //alert('suc');
+            },
+            error: function (jqXHR, textStatus, err) {
+                consol.log('Excepation');
+            }
+        });
+    }
+
+     function SMS() {
+        $.ajax({
+            url:"@Url.Action("sendsms", "MiriToken")",
+            type: "Post",
+            contentType: "application/json",
+            success: function (data) {
+               // alert('sms');
+            },
+            error: function (jqXHR, textStatus, err) {
+                consol.log('Excepation');
+            }
+        });
+    }
+</script>
+
+<script>
+
+
+    function RestQr() {
+        $.ajax({
+            url:"@Url.Action("RestQr", "MiriToken")",
+            type: "Post",
+            data: JSON.stringify(),
+            contentType: "application/json",
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                if (data != "") {
+                    $('#activationcode').html(data.ActivationCode);
+                    $("#qrimage").attr("src", "@Url.Action("QrCode", "MiriToken")/" + getdatetime());
+                }
+                else {
+
+                }
+            },
+            error: function (jqXHR, textStatus, err) {
+                conso.log('Excepation');
+            }
+        });
+    }
+
+</script>
+
+
+
+<script>
+    function AlreadyRegistration() {
+
+        var $parentIndex = 2
+        var $wrapperWidth = $('.wrapper').outerWidth();
+        $('.main-hldr').css({
+            transform: 'translateX(-' + ($wrapperWidth * $parentIndex) + 'px)'
+        });
+        //$('#container ul.steps li').eq($parentIndex).addClass('active');
+        //$('#container ul.steps li').eq(($parentIndex) - 3).addClass('completed');
+        $('#container ul.steps li').eq(($parentIndex) - 1).addClass('completed');
+        $('#container ul.steps li').eq(($parentIndex) + 1).addClass('active');
+
+    }
+</script>
+
+
+<script>
+    var requestflag = false;
+
+    $(document).ready(function () {
+
+        $('#loginform2').validate({ // initialize the plugin
+            rules: {
+                userid: {
+                    required: true,
+                    email: true,
+                    nowhitespace: true
+
+                },
+                token: {
+                    required: true,
+                    minlength: 9,
+                    nowhitespace: true
+
+                }
+
+            },
+            submitHandler: function (form) { // for demo
+                sendtokenlogindata(); // for demo
+                return false; // for demo
+            },
+
+            messages: {
+                userid: {
+                    required: "Please enter Email Id",
+                    //email: "Please enter valid Email Id"
+                    // minlength: jQuery.validator.format("Enter at least {0} characters"),
+
+                },
+
+                token: {
+                    required: "Please enter Miri Token",
+                    minlength: "Please enter valid Miri Token",
+                    maxlength: "Please enter valid Miri Token"
+                    // minlength: jQuery.validator.format("Enter at least {0} characters"),
+                }
+            }
+        });
+
+
+    });
+</script>
+<script>
+
+    function sendtokenlogindata() {
+        if (requestflag == true) {/*alert('processing...');*/ return; }
+        requestflag = true;
+        $("#result").html('processing...')
+        $("#result").html("");
+        //var name = $('[name="token"]').val()
+        //var token = name.replace(/-/g, '');
+        //alert(token);
+        var form = $('#loginform2')[0];
+        var data = new FormData(form);
+       var targeturl = "@Url.Action("LoginToken", "MiriToken")" ;
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: targeturl,
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                $('#btnSubmitmiritoken').removeAttr("disabled");
+                console.log("SUCCESS : ", data);
+                var responsecode = data.substring(0, 3);
+                if (responsecode == "000") {
+                    var r = data.split(':');
+                    $('#user_name').html(r[2] + ' ' + r[3]);
+                    $('#user_email').html(r[4]);
+                    $('#user_phone').html(r[5]);
+                    $('#user_designation').html(r[6] + ' | ' + r[7]);
+                    $('.try-left').removeClass('error');
+                    $('.try-left').addClass('success');
+                    setTimeout(function () {
+                        $('.try-form').hide();
+                        $('.try-left').addClass('show');
+                        $('#lblsubInput2').hide();
+                    }, 1500);
+
+                    setTimeout(function () {
+                        $('.try-left').removeClass('show');
+                        $('.try-left').removeClass('success');
+                        $('.try-left').addClass('active');
+                        $('.about-sec').addClass('active');
+                        requestflag = false;
+                        $('#lblsubInput2').hide();
+                    }, 2200);
+                    $('.try-left').removeClass('error');
+
+                    $('#lblsubInput2').hide();
+                    $("#userimage").attr("src", "@Url.Action("UserImage", "MiriToken")/" + getdatetime());
+                    $('#subInput2').val('');
+                    $('#userid').val('');
+                }
+                else if (responsecode == "001" || responsecode == "002")
+                {
+                    $('.try-form').hide();
+                    $('.try-left').addClass('error');
+                    $("#result").html("Invalid Credentials");
+                    $("#error_message").html("Invalid Credentials");
+                    $('#lblsubInput2').hide();
+                    $('#subInput2').val('');
+                    $('#userid').val('');
+                    requestflag = false;
+                }
+                else if (responsecode == "004" || responsecode == "004")
+                {
+                    $('.try-form').hide();
+                    alert('Account Locked. Please Contact Admin');
+                    $("#result").html("Account Locked. Please Contact Admin");
+                    $("#error_message").html("Account Locked.Please Contact Admin");
+                    $('#lblsubInput2').hide();
+                    $('#subInput2').val('');
+                    $('#userid').val('');
+                    requestflag = false;
+                }
+                else {// $("#result").html(data);
+                }
+
+            },
+            error: function (e) {
+
+                requestflag = false;
+                $("#result").html(e.responseText);
+                console.log("ERROR : ", e);
+              //  $("#btnSubmit").prop("disabled", false);
+                $('#loaderimg').hide();
+                $('#lblsubInput2').hide();
+            }
+        });
+
+    }
+</script>
+
+
+<script>
+    let scanner;
+    function startcam(elem) {
+        scanner = new Instascan.Scanner({ video: document.getElementById(elem) });
+        scanner.addListener('scan', function (content) {
+            // alert(content);
+            //  window.location.href = "3.html";
+            console.log(content);
+            var data = content;
+            if (content.length > 19) {
+
+                data = content.substring(content.length - 19, content.length);
+            }
+            data = data.replace(' ', '');
+
+            $('.qrBtnCls').click();
+            scanner.stop();
+            //if (product == 1) {
+            $('#subInput2').val(data); $('#loginform2').submit();
+            // $('#subInput').val(data); $('#loginform').submit();
+            //}
+            //else if (product == 2) {
+            //    $('#subInput2').val(data); $('#loginform2').submit();
+            //}
+
+        });
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No camera found.');
+                alert('No camera found.');
+
+            }
+        }).catch(function (e) {
+            console.error(e);
+            alert('No camera found.');
+        });
+    }
+</script>
+<script>
+    function Clear() {
+        window.location.reload();
+        //$("#registerresult").val('');
+        //$("#firstname").val('');
+        //$("#lastname").val('');
+        //$("#email").val('');
+        //$("#mobile").val('');
+        //$("#company").val('');
+        //$("#designation").val('');
+    }
+</script>
+
+
+<script>
+    $('#mobile').keyup(function () {
+        var code = $('#_phoneCode').val();
+        if (code == "+91") {
+            $('#mobile').attr("maxlength", "10");
+            $('#mobile').attr("minlength", "10");
+        }
+        else {
+            $('#mobile').attr("maxlength", "10");
+            $('#mobile').attr("minlength", "7");
+        }
+    })
+</script>
+<script>
+    $(function () {
+        $('#subInput2').keyup(function () {
+            $(this).val($(this).val().toUpperCase());
+        });
+    });
+</script>
+
+<script>
+    function DeRegistration() {
+        try {
+            $.ajax({
+                url: "@Url.Action("De_Reg", "MiriToken")",
+                type: "Post",
+                contentType: "application/json",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    console.log(data);
+                    var StatusCode = data;
+                    //alert(StatusCode);
+                    console.log(StatusCode);
+                    if (StatusCode == 0) {
+                        //alert('Success')
+                        swal('De-Registration Successfully');
+                    }
+                    else {
+                        //alert('Fail')
+                        swal('De-Registration Fail');
+                    }
+                },
+                error: function (jqXHR, textStatus, err) {
+                    conso.log('Excepation');
+                }
+            });
+        }
+        catch (e) {
+            consol.log(e);
+        }
+    }
+
+</script>
+@*<script>
+    $('#btnclose').click(function () {
+        window.location.reload();
+       
+    });
+</script>*@
+@*<script>
+    $('#btnback').click(function () {
+        window.location.reload();
+    });
+</script>*@
+
+

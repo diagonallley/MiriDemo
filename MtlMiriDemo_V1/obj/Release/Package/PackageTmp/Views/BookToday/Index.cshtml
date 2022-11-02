@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_LayoutEcom.cshtml";
+}
+
+<style>
+    #main {
+        position: absolute;
+    }
+</style>
+<div id="main" class="product book-product">
+    <div class="wrapper main-wrapper">
+        <div class="top-tabs clearfix">
+            <a href="@Url.Action("Index","AllKart")">Allkart.com</a>
+            <span class="top-divider"></span>
+            <a href="@Url.Action("Index","BookToday")" class="active">Booktoday.com</a>
+        </div>
+        <div class="main-content">
+            <div>
+                <div class="head">
+                    <div class="sub-wrapper">
+                        <div class="head-cnt">
+                            <a class="head-logo"><img src="~/Content/images/Booktoday.com.png" alt=""></a>
+                            <ul class="header-lst">
+                                <li>
+                                    <a href="#">Accommodation</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">Flights</a>
+                                </li>
+                                <li>
+                                    <a href="#">Rental cars</a>
+                                </li>
+                                <li>
+                                    <a href="#">Restaurants</a>
+                                </li>
+                            </ul>
+                            <a class="head-user"><img src="~/Content/images/user-sml.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="from-to-dest">
+                        <div class="sub-wrapper">
+                            <div class="book-blk-hldr">
+                                <div class="book-blk">
+                                    <p>Bengaluru (BLR)</p>
+                                    <a class="book-img"><img src="~/Content/images/switch-smal.png" alt=""></a>
+                                </div>
+                                <div class="book-blk"><p>Mumbai (BOM)</p></div>
+                            </div>
+                            <div class="book-blk">
+                                <p><img src="~/Content/images/calender.png" alt=""> Thu 12/5 – Thu 12/5</p>
+                            </div>
+                            <div class="book-blk"><p>1 Adult, Economy</p></div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="book-lst" id='bookticket'>
+                    <li id="1">
+                        <div class="book-info">
+                            <div class="company">
+                                <img src="~/Content/images/company-01.png" alt="">
+                                <p id="airindia">Air India</p>
+                            </div>
+                            <div class="time-duration">
+                                <p class="time">6 : 10 AM</p>
+                                <div class="duration">
+                                    <hr>
+                                    <p>1h 30 m</p>
+                                </div>
+                                <p class="time">7 : 40 AM</p>
+                            </div>
+                            <p class="cost" id="price1"><span class="rupee">₹</span> 9513</p>
+                        </div>
+                        <a href="@Url.Action("Index","BookTodayPayment")" class="blue-btn">BOOK NOW</a>
+                    </li>
+                    <li id="2">
+                        <div class="book-info">
+                            <div class="company">
+                                <img src="~/Content/images/company-02.png" alt="">
+                                <p>Vistara</p>
+                            </div>
+                            <div class="time-duration">
+                                <p class="time">6 : 10 AM</p>
+                                <div class="duration">
+                                    <hr>
+                                    <p>1h 30 m</p>
+                                </div>
+                                <p class="time">7 : 40 AM</p>
+                            </div>
+                            <p class="cost" id="price2"><span class="rupee">₹</span> 12066</p>
+                        </div>
+                        <a href="@Url.Action("Index","BookTodayPayment")" class="blue-btn">BOOK NOW</a>
+                    </li>
+                    <li id="3">
+                        <div class="book-info">
+                            <div class="company">
+                                <img src="~/Content/images/company-03.png" alt="">
+                                <p>GoAir</p>
+                            </div>
+                            <div class="time-duration">
+                                <p class="time">6 : 10 AM</p>
+                                <div class="duration">
+                                    <hr>
+                                    <p>1h 30 m</p>
+                                </div>
+                                <p class="time">7 : 40 AM</p>
+                            </div>
+                            <p class="cost" id="price3"><span class="rupee">₹</span> 9513</p>
+                        </div>
+                        <a href="@Url.Action("Index","BookTodayPayment")" class="blue-btn">BOOK NOW</a>
+                    </li>
+                    <li id="4">
+                        <div class="book-info">
+                            <div class="company">
+                                <img src="~/Content/images/company-01.png" alt="">
+                                <p id="airindia">Air India</p>
+                            </div>
+                            <div class="time-duration">
+                                <p class="time">6 : 10 AM</p>
+                                <div class="duration">
+                                    <hr>
+                                    <p>1h 30 m</p>
+                                </div>
+                                <p class="time">7 : 40 AM</p>
+                            </div>
+                            <p class="cost" id="price4"><span class="rupee">₹</span> 12066</p>
+                        </div>
+                        <a href="@Url.Action("Index","BookTodayPayment")" class="blue-btn" >BOOK NOW</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#bookticket li").click(function () {
+         
+        var liid = this.id;
+        var price = "";
+        if (liid == 1) {
+            sessionStorage.price = "9513";
+        }
+        else if (liid == 2) {
+            sessionStorage.price = "12066";
+        }
+        else if (liid == 3) {
+            sessionStorage.price = "9513";
+        }
+        else if (liid == 4) {
+            sessionStorage.price = "12066";
+            
+        }
+
+
+    });
+</script>
